@@ -13,7 +13,7 @@ website:
 
   site-url: https://maxinelevesque.github.io/nso-24-stats/
   repo-url: https://github.com/maxinelevesque/nso-24-stats
-  repo-subdir: docs
+  repo-subdir: slides
   repo-actions: [source, issue]
 
   sidebar:
