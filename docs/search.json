@@ -1,0 +1,366 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hello!",
+    "section": "",
+    "text": "Hello!\nThis is a test."
+  },
+  {
+    "objectID": "bayes.html#a-clairvoyant-mouse-1",
+    "href": "bayes.html#a-clairvoyant-mouse-1",
+    "title": "Gaining knowledge from tests",
+    "section": "A clairvoyant mouse?",
+    "text": "A clairvoyant mouse?\n\n\n\nYou look at your data, and you see that you reject the null hypothesis that manipulated mice do not predict the future with a \\(p\\)-value of 0.014.\n\n\n\n\n\n\nWhat do you do with this information?"
+  },
+  {
+    "objectID": "bayes.html#lets-think-about-it-another-way-1",
+    "href": "bayes.html#lets-think-about-it-another-way-1",
+    "title": "Gaining knowledge from tests",
+    "section": "Let’s think about it another way",
+    "text": "Let’s think about it another way\n\n\n\nFor the last four weeks, you’ve been doing nothing but sitting in your room alone studying for your qualifying exam, with absolutely zero human contact.\n\n\n\nYou take it and pass—hooray!"
+  },
+  {
+    "objectID": "bayes.html#lets-think-about-it-another-way-2",
+    "href": "bayes.html#lets-think-about-it-another-way-2",
+    "title": "Gaining knowledge from tests",
+    "section": "Let’s think about it another way",
+    "text": "Let’s think about it another way\n\nBut while you’ve been away studying, UCSF has announced a new policy requiring all graduate students to be tested for Covid-19 daily. You must provide a negative test result before entering any research building on-campus!\n\n\nNo, not really.\n\n\n\n\nYou grab a test from one of the Color vending machines and wait at home for the results to come back. The next day, you get an email:"
+  },
+  {
+    "objectID": "bayes.html#the-scenario",
+    "href": "bayes.html#the-scenario",
+    "title": "Gaining knowledge from tests",
+    "section": "The scenario",
+    "text": "The scenario\n\nN.B.: SF no longer tracks Covid case rates, so I’ll be using last year’s numbers.\n\n\n\nCurrent rolling average for reported Covid cases in San Francisco: ~65 per day.\n\n\n\n\nSF’s population is ~815,000. So, reported incidence of Covid in SF: ~7.97 per 100,000 per day.\n\n\n\n\nLet’s aim high: assume Covid incidence is 4x reported: ~31.88 per 100,000 per day."
+  },
+  {
+    "objectID": "bayes.html#the-scenario-1",
+    "href": "bayes.html#the-scenario-1",
+    "title": "Gaining knowledge from tests",
+    "section": "The scenario",
+    "text": "The scenario\n \n\nTo get to prevalence, let’s assume everyone infected has Covid for 14 days.\n\n\n\nSo, ballpark prevalence of Covid in SF: ~111.6 per 100,000.\n\n\n\n\nIf you were to pick a person at random from San Francisco with no other knowledge, this would be about the chance of picking someone who currently has Covid."
+  },
+  {
+    "objectID": "bayes.html#section",
+    "href": "bayes.html#section",
+    "title": "Gaining knowledge from tests",
+    "section": " ",
+    "text": "# September 2021 (using reported case count)\n# covid_prevalence = 350 / 100000\n\n# August 2022 (using reported case count)\n# covid_prevalence = 288.4 / 100000\n\n# September 2023 (using 4x reported case count)\n# covid_prevalence = 446.32 / 100000\n\n# September 2024 (no more case counts, using 2023 data)\ncovid_prevalence = 446.32 / 100000"
+  },
+  {
+    "objectID": "bayes.html#recall",
+    "href": "bayes.html#recall",
+    "title": "Gaining knowledge from tests",
+    "section": "Recall",
+    "text": "Recall\n \nThe \\(p\\)-value is defined by thinking about what our observations would be by chance if we presuppose that the null hypothesis is in fact true:\n\n\\[ p = \\mathrm{Pr}(\\textrm{we observe a difference} \\mid \\textrm{there is no difference}) \\]\n\n\n\nThis is convenient to use, because we can always impose the null hypothesis by shuffling our data. This is called permutation testing."
+  },
+  {
+    "objectID": "bayes.html#section-5",
+    "href": "bayes.html#section-5",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "N.B.: The \\(p\\)-value can be thought of as\n\\[ p = \\mathrm{Pr}(\\textrm{test }+ \\mid \\textrm{actually }-) \\]\n\nBecause there are only two test outcomes, \\(+\\) and \\(-\\), this means that\n\\[\\begin{eqnarray*}\np & = & 1 - \\mathrm{Pr}(\\textrm{test }- \\mid \\textrm{actually }-) \\\\\n& = & 1 - \\mathrm{specificity}\n\\end{eqnarray*}\\]\n\n\nSo, the \\(p\\)-value is in the same “family” of measures about a test as sensitivity and specificity."
+  },
+  {
+    "objectID": "bayes.html#back-to-the-code",
+    "href": "bayes.html#back-to-the-code",
+    "title": "Gaining knowledge from tests",
+    "section": "Back to the code",
+    "text": "Back to the code\n\nLet’s suppose that the currently used RT-PCR test for Covid has approximately the following characteristics:\n# September 2021\n# rtpcr_sensitivity = 0.777\n# rtpcr_specificity = 0.988\n\n# August 2022\n# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7350782/\nrtpcr_sensitivity = 0.733\n# https://www.uptodate.com/contents/covid-19-diagnosis\nrtpcr_specificity = 0.97\n\n# September 2023: These characteristics haven't appreciably changed\n\n# September 2024: \"\n\n\n\nN.B.: Finding accurate values is challenging in practice."
+  },
+  {
+    "objectID": "bayes.html#section-6",
+    "href": "bayes.html#section-6",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "N.B.: We can compute the \\(p\\)-value of this test using the formula from earlier, \\(1 - \\textrm{specificity}\\):\n\n\n\nprint( f'&gt; $p$ = **{1 - rtpcr_specificity:0.4f}**' )\n\n\\(p\\) = 0.0300"
+  },
+  {
+    "objectID": "bayes.html#what-do-you-think-are-the-ppv-and-npv-for-the-rt-pcr-test",
+    "href": "bayes.html#what-do-you-think-are-the-ppv-and-npv-for-the-rt-pcr-test",
+    "title": "Gaining knowledge from tests",
+    "section": "What do you think are the PPV and NPV for the RT-PCR test?",
+    "text": "What do you think are the PPV and NPV for the RT-PCR test?"
+  },
+  {
+    "objectID": "bayes.html#section-10",
+    "href": "bayes.html#section-10",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "N.B.: Always write docstrings for your code:\n\n\n\n\nhelp( sample_results )\n\nHelp on function sample_results in module __main__:\n\nsample_results(n, prevalence, sensitivity, specificity)\n    Sample disease presence and test results with the given characteristics\n\n    Arguments:\n    n -- The number of individiuals to sample\n    prevalence -- The probability of finding the actual disease in the population\n    sensitivity -- The probability of testing positive given one has the disease\n    specificity -- The probability of testing negative given one does not have the disease\n\n    Reutrns:\n    has_disease -- Shape (n,), whether each individual has the disease\n    test_results -- Shape (n,), whether each individual tests positive for the disease"
+  },
+  {
+    "objectID": "bayes.html#what-are-the-ppv-and-npv",
+    "href": "bayes.html#what-are-the-ppv-and-npv",
+    "title": "Gaining knowledge from tests",
+    "section": "What are the PPV and NPV?",
+    "text": "What are the PPV and NPV?\n\n \n\n\n# (See code for the slides online)\nppv_naive, npv_naive = predictive_value( has_covid, rtpcr_positive )\n\n# We can do math in our curly braces; here I convert the ratios into\n# percents. The `:0.2f` at the end tells Python that I want 2 digits\n# after the decimal point (not at all intuitive; blame the C people\n# who wrote the original `printf` function).\nprint( f'&gt; Naive PPV: **{ppv_naive * 100:0.2f}%**\\\\' )\nprint( f'&gt; Naive NPV: **{npv_naive * 100:0.2f}%**' )\n\n\n\nNaive PPV: 9.86%\nNaive NPV: 99.87%"
+  },
+  {
+    "objectID": "bayes.html#do-you-think-this-will-scale-well",
+    "href": "bayes.html#do-you-think-this-will-scale-well",
+    "title": "Gaining knowledge from tests",
+    "section": "Do you think this will scale well?",
+    "text": "Do you think this will scale well?\n\nSuppose quarantine lasts for 10 days (8 work days). What fraction of the workforce would have to be quarantining at any given moment from false positive tests alone?\n\n \n\n\n# 10 days is the policy, but a couple of those will be a weekend\nquarantine_workdays = 8\n# False positives *do not* have Covid *and* test positive\nquarantine_fp_per_day = np.sum( ~has_covid & rtpcr_positive )\nquarantine_fp_simultaneous = quarantine_fp_per_day * quarantine_workdays\nquarantine_fraction = quarantine_fp_simultaneous / n_employees\n\nprint( f'&gt; Fraction of workforce quarantined: **{quarantine_fraction * 100:0.2f}%**' )\n\n\n\nFraction of workforce quarantined: 24.37%"
+  },
+  {
+    "objectID": "bayes.html#section-11",
+    "href": "bayes.html#section-11",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "But, n.b.! This test also has an extremely high accuracy—that is, the probability of the test being correct:\n\n\n# == operates element by element on arrays\n# `a == b` is an array where each element is `True` if the\n# corresponding elements of `a` and `b` are equal\naccuracy_naive = np.sum( has_covid == rtpcr_positive ) / len( has_covid )\n\nprint( f'&gt; Naive accuracy: **{accuracy_naive * 100:0.2f}%**' )\n\n\n\nNaive accuracy: 96.83%\n\n\n\n\n\nThe accuracy of the test is hiding the fact that we’re actually doing quite a terrible job with the positive predictive value—the much more actionable piece of information—because the prevalence of Covid cases is so low!"
+  },
+  {
+    "objectID": "bayes.html#whats-going-wrong",
+    "href": "bayes.html#whats-going-wrong",
+    "title": "Gaining knowledge from tests",
+    "section": "What’s going wrong?",
+    "text": "What’s going wrong?\n\n \nIs this a bad test?\n\n\n \nDo you still think you have Covid?"
+  },
+  {
+    "objectID": "bayes.html#a-better-way-to-use-covid-tests-1",
+    "href": "bayes.html#a-better-way-to-use-covid-tests-1",
+    "title": "Gaining knowledge from tests",
+    "section": "A better way to use Covid tests",
+    "text": "A better way to use Covid tests\n\n \nIn our simulation, the prevalence of Covid was thought of as the probability that someone in our sample had Covid. We took this to be the prevalence of Covid in San Francisco, under the assumption that we were testing people essentially randomly, and had no criteria for how we were selecting people to test."
+  },
+  {
+    "objectID": "bayes.html#a-better-way-to-use-covid-tests-2",
+    "href": "bayes.html#a-better-way-to-use-covid-tests-2",
+    "title": "Gaining knowledge from tests",
+    "section": "A better way to use Covid tests",
+    "text": "A better way to use Covid tests\n\n\nAfter briefly quarantining a substantial portion of its workforce, UCSF has decided to try a new Covid testing schema.\n\n\nIn medicine, we call this “continual improvement”!\n\n\n\nNow, only people who have an exposure to a confirmed symptomatic case will be tested."
+  },
+  {
+    "objectID": "bayes.html#a-better-way-to-use-covid-tests-3",
+    "href": "bayes.html#a-better-way-to-use-covid-tests-3",
+    "title": "Gaining knowledge from tests",
+    "section": "A better way to use Covid tests",
+    "text": "A better way to use Covid tests\n\nBefore, we had no clue about the people being tested. This new criterion means we have more knowledge (of the exposure).\n\nThis knowledge changes our prior belief—before even running the test!—of whether or not the person being tested has Covid: we expect that someone who has had an exposure is more likely to have Covid than someone random from the general population."
+  },
+  {
+    "objectID": "bayes.html#a-better-way-to-use-covid-tests-4",
+    "href": "bayes.html#a-better-way-to-use-covid-tests-4",
+    "title": "Gaining knowledge from tests",
+    "section": "A better way to use Covid tests",
+    "text": "A better way to use Covid tests\n\nAll of the characteristics of the test itself are still exactly the same—the same reagents, the same technique, everything.\nThe only thing we’ll change to simulate this new scenario is the proportion of tested people who have Covid.\n\n\nLet’s say that an exposure to a symptomatic case of Covid carries an associated risk of infection of 5%:\n\ncovid_belief_sus = 0.05"
+  },
+  {
+    "objectID": "bayes.html#what-do-you-think-will-happen-to-the-ppv-of-our-test-in-this-new-scheme",
+    "href": "bayes.html#what-do-you-think-will-happen-to-the-ppv-of-our-test-in-this-new-scheme",
+    "title": "Gaining knowledge from tests",
+    "section": "What do you think will happen to the PPV of our test in this new scheme?",
+    "text": "What do you think will happen to the PPV of our test in this new scheme?\n\n \nHow about the NPV?"
+  },
+  {
+    "objectID": "bayes.html#dummy-check-round-2",
+    "href": "bayes.html#dummy-check-round-2",
+    "title": "Gaining knowledge from tests",
+    "section": "Dummy check, round 2",
+    "text": "Dummy check, round 2\n\n\n\n\n\nfig, ax = plt.subplots( figsize = (12, 1.2) )\nsample_plot( ax, has_covid_sus, rtpcr_positive_sus )\nplt.show()"
+  },
+  {
+    "objectID": "bayes.html#aha",
+    "href": "bayes.html#aha",
+    "title": "Gaining knowledge from tests",
+    "section": "Aha!",
+    "text": "Aha!\n\n\n \nThe PPV has jumped dramatically, from about 10% to about 60%!\n\n\nIn this setting—where we have some additional knowledge about who we’re testing—the same exact test has become a lot more useful."
+  },
+  {
+    "objectID": "bayes.html#section-13",
+    "href": "bayes.html#section-13",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "N.B.: There is no free lunch, of course!\nThe cost we pay is that the NPV in this scenario is now slightly lower!"
+  },
+  {
+    "objectID": "bayes.html#section-14",
+    "href": "bayes.html#section-14",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "The critical takeaway message is this:\n\n\nHow useful a test is depends on our prior belief about the thing we’re testing for."
+  },
+  {
+    "objectID": "bayes.html#how-much-knowledge-do-we-need",
+    "href": "bayes.html#how-much-knowledge-do-we-need",
+    "title": "Gaining knowledge from tests",
+    "section": "How much knowledge do we need?",
+    "text": "How much knowledge do we need?\n\nLet’s see how this whole picture plays out as we “sweep through” a bunch of different possible priors."
+  },
+  {
+    "objectID": "bayes.html#section-15",
+    "href": "bayes.html#section-15",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "# (See code in slide repo for implementations)\n\n# Run our simulation\n# Pick beliefs linearly spaced between 0 and 0.25\ncovid_beliefs_sweep = np.linspace( 0, 0.25, 100 )\nppvs_sweep, npvs_sweep = belief_sweep( rtpcr_sensitivity,\n                                       rtpcr_specificity,\n                                       covid_beliefs_sweep )\n# Build our plot\nfig, ax = plt.subplots( figsize = (12, 4) )\nplot_sweep( ax, covid_beliefs_sweep, ppvs_sweep, npvs_sweep,\n            annotations = [(covid_prevalence, 'k--', 'Random testing'),\n                           (covid_belief_sus, 'm--', 'Testing after confirmed exposure')],\n            xlabel = 'Prior belief of Covid' )\nplt.show()"
+  },
+  {
+    "objectID": "bayes.html#what-does-a-test-do-1",
+    "href": "bayes.html#what-does-a-test-do-1",
+    "title": "Gaining knowledge from tests",
+    "section": "What does a test do?",
+    "text": "What does a test do?\n\n\n \nBefore we ran the test, we had some prior knowledge about whether we had Covid:\n\\[ \\mathrm{Pr}(\\textrm{actually }+) \\]"
+  },
+  {
+    "objectID": "bayes.html#what-does-a-test-do-2",
+    "href": "bayes.html#what-does-a-test-do-2",
+    "title": "Gaining knowledge from tests",
+    "section": "What does a test do?",
+    "text": "What does a test do?\nWhen we get new knowledge—the result of the test—we update our belief of whether we have Covid. Our knowledge about whether we have Covid after the update caused by the test is precisely the PPV:\n\\[\\begin{eqnarray*}\n&\\mathrm{Pr}(\\textrm{actually }+) & \\\\\n& \\downarrow & \\\\\n& \\mathrm{Pr}(\\textrm{actually }+ \\mid \\textrm{test }+) &\n\\end{eqnarray*}\\]\nThis is also known as the posterior probability (as in, the probability that we have after) given a positive test."
+  },
+  {
+    "objectID": "bayes.html#section-17",
+    "href": "bayes.html#section-17",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "N.B.: The amount of information provided by a test result is called the result’s Bayes factor, \\(K\\).\n\nWhile the PPV—which is the posterior probability of disease given a positive test—changes depending on the prior, the following ratios are always proportional:\n\\[ \\frac{\\mathrm{Pr}(\\textrm{actually }+ \\mid \\textrm{test }+)}{\\mathrm{Pr}(\\textrm{actually }- \\mid \\textrm{test }+)} = K\\,\\frac{\\mathrm{Pr}(\\textrm{actually }+)}{\\mathrm{Pr}(\\textrm{actually }-)}\\]\n\n\nSo, the Bayes factor tells us how much receiving a positive test result changes our prior belief. Test results with larger Bayes factors change our beliefs more."
+  },
+  {
+    "objectID": "bayes.html#tests-in-science-1",
+    "href": "bayes.html#tests-in-science-1",
+    "title": "Gaining knowledge from tests",
+    "section": "Tests in science",
+    "text": "Tests in science\n \nFor Covid testing, we obtained some bit of noisy data (a positive test result), and sought to infer something about what was actually happening (whether we truly have Covid).\n\nWe made this inference quantitative using the Covid RT-PCR test’s PPV:\n\\[ \\mathrm{PPV} = \\mathrm{Pr}(\\textrm{actually }+ \\mid \\textrm{test }+) \\]"
+  },
+  {
+    "objectID": "bayes.html#tests-in-science-2",
+    "href": "bayes.html#tests-in-science-2",
+    "title": "Gaining knowledge from tests",
+    "section": "Tests in science",
+    "text": "Tests in science\n\n \nIn science, we use statistical tests.\n\nJust like the Covid RT-PCR, statistical tests are noisy bits of data. What we would like to do is to infer something about what is actually happening in the world on the basis of these test results."
+  },
+  {
+    "objectID": "bayes.html#examplecorrelation",
+    "href": "bayes.html#examplecorrelation",
+    "title": "Gaining knowledge from tests",
+    "section": "Example—Correlation",
+    "text": "Example—Correlation\nLet’s say that you’re analyzing some data. You plug two variables you’re working on, x and y, into a magic black box like scipy.stats.pearsonr, and it pops out:\n \n\n&gt;&gt;&gt; scipy.stats.pearsonr( x, y )\n(0.21365304326850618, 0.03281172835181021)\n\n(The first value is the correlation \\(r\\), the second is the \\(p\\)-value.)\n\n\n\n\nCool, it’s significant! We got a positive test result."
+  },
+  {
+    "objectID": "bayes.html#examplecorrelation-1",
+    "href": "bayes.html#examplecorrelation-1",
+    "title": "Gaining knowledge from tests",
+    "section": "Example—Correlation",
+    "text": "Example—Correlation\n \nGiven this:\n&gt;&gt;&gt; scipy.stats.pearsonr( x, y )\n(0.21365304326850618, 0.03281172835181021)\n \n… what do you now know about whether there is actually a relationship between x and y?"
+  },
+  {
+    "objectID": "bayes.html#examplecorrelation-2",
+    "href": "bayes.html#examplecorrelation-2",
+    "title": "Gaining knowledge from tests",
+    "section": "Example—Correlation",
+    "text": "Example—Correlation\n \n&gt;&gt;&gt; scipy.stats.pearsonr( x, y )\n(0.21365304326850618, 0.03281172835181021)\nThis information, by itself, is not a statement about whether the null hypothesis is actually true or false—just as a positive Covid test is not, by itself, a statement about whether you actually have Covid.\n\n \nWe must infer the truth from the test\n\n\n\nWhat does this inference depend on?"
+  },
+  {
+    "objectID": "bayes.html#examplecorrelation-3",
+    "href": "bayes.html#examplecorrelation-3",
+    "title": "Gaining knowledge from tests",
+    "section": "Example—Correlation",
+    "text": "Example—Correlation\n \n&gt;&gt;&gt; scipy.stats.pearsonr( x, y )\n(0.21365304326850618, 0.03281172835181021)\nWith our shiny positive test result, what we really care about is the posterior probability, given we saw this test result, of whether there is a relationship between x and y. This is precisely the PPV:\n\\[ \\mathrm{PPV} := \\mathrm{Pr}(\\textrm{actually a relationship} \\mid \\textrm{test rejects null hyp.}) \\]"
+  },
+  {
+    "objectID": "bayes.html#examplecorrelation-4",
+    "href": "bayes.html#examplecorrelation-4",
+    "title": "Gaining knowledge from tests",
+    "section": "Example—Correlation",
+    "text": "Example—Correlation\n \n&gt;&gt;&gt; scipy.stats.pearsonr( x, y )\n(0.21365304326850618, 0.03281172835181021)\n\\[ \\mathrm{PPV} := \\mathrm{Pr}(\\textrm{actually a relationship} \\mid \\textrm{test rejects null hyp.}) \\]\nBut, just as before with Covid RT-PCR,\nPPV depends on our prior knowledge of whether there is a real relationship between x and y—\nnot just the characteristics of pearsonr!"
+  },
+  {
+    "objectID": "bayes.html#examplecorrelation-5",
+    "href": "bayes.html#examplecorrelation-5",
+    "title": "Gaining knowledge from tests",
+    "section": "Example—Correlation",
+    "text": "Example—Correlation\n \n&gt;&gt;&gt; scipy.stats.pearsonr( x, y )\n(0.21365304326850618, 0.03281172835181021)\nSuppose I got this result by going out into the world and running the pearsonr function between every pair of two datasets I could get my hands on.\n\nWhat is the probability that any two of those randomly chosen datasets are actually causally related to one another? That is, what is the prior,\n\\[ \\mathrm{Pr}(\\textrm{actually a relationship}) \\]"
+  },
+  {
+    "objectID": "bayes.html#examplecorrelation-6",
+    "href": "bayes.html#examplecorrelation-6",
+    "title": "Gaining knowledge from tests",
+    "section": "Example—Correlation",
+    "text": "Example—Correlation\n \n&gt;&gt;&gt; scipy.stats.pearsonr( x, y )\n(0.21365304326850618, 0.03281172835181021)\n \nWhat is the probability that any two of those randomly chosen datasets are actually causally related to one another? That is, what is the prior,\n\\[ \\mathrm{Pr}(\\textrm{actually a relationship}) \\]\nIt is astronomically small."
+  },
+  {
+    "objectID": "bayes.html#examplecorrelation-7",
+    "href": "bayes.html#examplecorrelation-7",
+    "title": "Gaining knowledge from tests",
+    "section": "Example—Correlation",
+    "text": "Example—Correlation\n \n&gt;&gt;&gt; scipy.stats.pearsonr( x, y )\n(0.21365304326850618, 0.03281172835181021)\n \nIn this experimental setup of randomly testing correlations, what is the PPV?\n\n \nIt is exceedingly low."
+  },
+  {
+    "objectID": "bayes.html#examplecorrelation-8",
+    "href": "bayes.html#examplecorrelation-8",
+    "title": "Gaining knowledge from tests",
+    "section": "Example—Correlation",
+    "text": "Example—Correlation\n \n&gt;&gt;&gt; scipy.stats.pearsonr( x, y )\n(0.21365304326850618, 0.03281172835181021)\n \nSo, how do I interpret this result I just saw, that pearsonr rejected the null hypothesis of no relationship between x and y?\n\n \nIt is probably a false positive."
+  },
+  {
+    "objectID": "bayes.html#section-19",
+    "href": "bayes.html#section-19",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "Does that mean that scipy.stats.pearsonr is a bad test?\n\n \n\n\nIs Covid RT-PCR a bad test?"
+  },
+  {
+    "objectID": "bayes.html#no.",
+    "href": "bayes.html#no.",
+    "title": "Gaining knowledge from tests",
+    "section": "No. ",
+    "text": "No. \n\n \nPPV isn’t just about the test.\nPPV depends on how the test is used."
+  },
+  {
+    "objectID": "bayes.html#recall-1",
+    "href": "bayes.html#recall-1",
+    "title": "Gaining knowledge from tests",
+    "section": "Recall",
+    "text": "Recall\nWhen looking at Covid testing, increasing our prior belief of Covid infection to just 5% raised the PPV from 5% to 60%, for the exact same test. To make the test’s results more meaningful, we used knowledge of prior exposure to Covid to choose who to test."
+  },
+  {
+    "objectID": "bayes.html#section-20",
+    "href": "bayes.html#section-20",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "Even very weak information can dramatically improve the utility of a test!\n\n \nSo, how do you improve the positive predictive value of testing for significant correlations?\n\n\n\nChoose the right questions to ask."
+  },
+  {
+    "objectID": "bayes.html#a-clairvoyant-mouse-2",
+    "href": "bayes.html#a-clairvoyant-mouse-2",
+    "title": "Gaining knowledge from tests",
+    "section": "A clairvoyant mouse?",
+    "text": "A clairvoyant mouse?\n \nYou look at your data, and you see that you reject the null hypothesis that manipulated mice do not predict the future with a \\(p\\)-value of 0.014.\n\n \nWhat do you now know about whether the mouse is actually clairvoyant?\n\n\n \nWhy do you think this?"
+  },
+  {
+    "objectID": "bayes.html#a-clairvoyant-mouse-3",
+    "href": "bayes.html#a-clairvoyant-mouse-3",
+    "title": "Gaining knowledge from tests",
+    "section": "A clairvoyant mouse?",
+    "text": "A clairvoyant mouse?\n \nYou look at your data, and you see that you reject the null hypothesis that manipulated mice do not predict the future with a \\(p\\)-value of 0.014.\n \nWhat do you do with this information?"
+  },
+  {
+    "objectID": "bayes.html#section-21",
+    "href": "bayes.html#section-21",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "Tests do not tell us the truth.\n\n\n\n \n\nWe try to infer the truth from tests."
+  },
+  {
+    "objectID": "bayes.html#section-22",
+    "href": "bayes.html#section-22",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "Because we live in a special part of the multiverse—the part where we saw what we saw!\n\n\n \nTests update our beliefs about the world."
+  },
+  {
+    "objectID": "bayes.html#section-23",
+    "href": "bayes.html#section-23",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "The predictive value of a test depends on how the test is used.\n\n\nIn particular, it depends on our prior knowledge of what we are testing for."
+  },
+  {
+    "objectID": "bayes.html#section-24",
+    "href": "bayes.html#section-24",
+    "title": "Gaining knowledge from tests",
+    "section": "",
+    "text": "Statistical testing is not just a matter of selecting the “correct” test for a given question.\n\n \nBeing judicious about selecting the correct questions to apply the test to is a more powerful way to\n\n\n\nstrengthen the inferences gained through statistics;\n\n\n\n\nimprove the reproducibility of science; and\n\n\n\n\nmore responsibly use resources, like experimental animals, that we have an ethical obligation to minimize."
+  }
+]

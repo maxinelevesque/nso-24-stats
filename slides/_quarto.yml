@@ -1,5 +1,12 @@
 project:
   title: "nso-24-stats"
+  type: website
   output-dir: ../docs
 
+website:
+  title: "Stats"
 
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
