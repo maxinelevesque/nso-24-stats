@@ -39,9 +39,8 @@
 :::
 ::: {.column width="70%"}
 * science as **erosion**
-* the power of **contingency**
-* sampling **distribution** of the **mean**
-* **$p$-value** and **power**
+* what happens when you learn the **wrong concepts** early?
+* a better way **forward**
 :::
 ::::
 
