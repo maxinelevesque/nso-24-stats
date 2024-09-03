@@ -1,6 +1,6 @@
 # Agenda
 
-## 9:00–9:50 ~ <span style="opacity:0.4;">*Air* 🜁</span> On unseen data
+## 9:30–10:20 ~ <span style="opacity:0.4;">*Air* 🜁</span> On unseen data
 :::: {.columns}
 ::: {.column width="30%"}
 ##### Slides
@@ -13,9 +13,9 @@
 :::
 ::::
 
-#### 9:50–10:00 ~ <span style="opacity:0.4;">Earth 🜃</span> *Break*
+#### 10:20–10:30 ~ <span style="opacity:0.4;">Earth 🜃</span> *Break*
 
-## 10:00–10:50 ~ <span style="opacity:0.4;">*Water* 🜄</span> Gaining knowledge from tests
+## 10:30–11:20 ~ <span style="opacity:0.4;">*Water* 🜄</span> Gaining knowledge from tests
 :::: {.columns}
 ::: {.column width="30%"}
 ##### <a href="bayes.html" target="_blank">Slides</a>
@@ -29,9 +29,9 @@
 :::
 ::::
 
-#### 10:50–11:00 ~ <span style="opacity:0.4;">Earth 🜃</span> *Break*
+#### 11:20–11:30 ~ <span style="opacity:0.4;">Earth 🜃</span> *Break*
 
-## 11:00–12:00 ~ <span style="opacity:0.4;">Fire 🜂</span> Active inference
+## 11:30–12:20 ~ <span style="opacity:0.4;">Fire 🜂</span> Active inference
 :::: {.columns}
 ::: {.column width="30%"}
 ##### Slides
@@ -45,4 +45,4 @@
 :::
 ::::
 
-#### 12:00 onward ~ <span style="opacity:0.4;">Æther 🜀</span> *Frolic*
+#### 12:20 onward ~ <span style="opacity:0.4;">Æther 🜀</span> *Frolic*

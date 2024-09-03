@@ -6,16 +6,23 @@ toc: false
 
 Let's take a walk through the magical world of
 
-> ｓｔａｔｉｓｔｉｃｓ 📈🧮📊
+> ｓｔａｔｉｓｔｉｃｓ.
+>
+> 📈 🧮 📊
 
-❤️‍🔥 Maxine
+❤️‍🔥 Maxine<br/>maxine.collard@ucsf.edu
 
----
+## For today
 
-# Goals
+::: {.columns}
+::: {.column}
+### Goals
 * Be entertaining.
 * Provoke thoughts.
-
-# Expectations
+:::
+::: {.column}
+### Expectations
 * Ask questions.
 * Find the interesting thing.
+:::
+::::

@@ -8,7 +8,7 @@ format:
     theme: quartz
 
 website:
-  title: "Oh God—<br/>not the math"
+  title: "Oh God—<br/>not the math<br/>"
   page-navigation: false
 
   site-url: https://maxinelevesque.github.io/nso-24-stats/
@@ -18,8 +18,13 @@ website:
 
   sidebar:
     style: floating
+    tools:
+      - icon: github
+        href: https://github.com/maxinelevesque/nso-24-stats
     contents:
       - href: index.qmd
         text: Home
       - href: agenda.qmd
         text: Agenda
+      - href: howto.qmd
+        text: How-to

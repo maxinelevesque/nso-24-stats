@@ -40,6 +40,26 @@
     ]
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to UCSF!",
+    "section": "",
+    "text": "Let’s take a walk through the magical world of\n\nｓｔａｔｉｓｔｉｃｓ.\n📈 🧮 📊\n\n❤️‍🔥 Maxinemaxine.collard@ucsf.edu\n\n\n\n\n\n\n\nBe entertaining.\nProvoke thoughts.\n\n\n\n\n\n\nAsk questions.\nFind the interesting thing.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#for-today",
+    "href": "index.html#for-today",
+    "title": "Welcome to UCSF!",
+    "section": "",
+    "text": "Be entertaining.\nProvoke thoughts.\n\n\n\n\n\n\nAsk questions.\nFind the interesting thing.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
     "objectID": "bayes.html#a-clairvoyant-mouse-1",
     "href": "bayes.html#a-clairvoyant-mouse-1",
     "title": "Gaining knowledge from tests",
@@ -128,21 +148,21 @@
     "href": "bayes.html#what-are-the-ppv-and-npv",
     "title": "Gaining knowledge from tests",
     "section": "What are the PPV and NPV?",
-    "text": "What are the PPV and NPV?\n\n \n\n\n# (See code for the slides online)\nppv_naive, npv_naive = predictive_value( has_covid, rtpcr_positive )\n\n# We can do math in our curly braces; here I convert the ratios into\n# percents. The `:0.2f` at the end tells Python that I want 2 digits\n# after the decimal point (not at all intuitive; blame the C people\n# who wrote the original `printf` function).\nprint( f'&gt; Naive PPV: **{ppv_naive * 100:0.2f}%**\\\\' )\nprint( f'&gt; Naive NPV: **{npv_naive * 100:0.2f}%**' )\n\n\n\nNaive PPV: 11.48%\nNaive NPV: 99.88%"
+    "text": "What are the PPV and NPV?\n\n \n\n\n# (See code for the slides online)\nppv_naive, npv_naive = predictive_value( has_covid, rtpcr_positive )\n\n# We can do math in our curly braces; here I convert the ratios into\n# percents. The `:0.2f` at the end tells Python that I want 2 digits\n# after the decimal point (not at all intuitive; blame the C people\n# who wrote the original `printf` function).\nprint( f'&gt; Naive PPV: **{ppv_naive * 100:0.2f}%**\\\\' )\nprint( f'&gt; Naive NPV: **{npv_naive * 100:0.2f}%**' )\n\n\n\nNaive PPV: 10.57%\nNaive NPV: 99.88%"
   },
   {
     "objectID": "bayes.html#do-you-think-this-will-scale-well",
     "href": "bayes.html#do-you-think-this-will-scale-well",
     "title": "Gaining knowledge from tests",
     "section": "Do you think this will scale well?",
-    "text": "Do you think this will scale well?\n\nSuppose quarantine lasts for 10 days (8 work days). What fraction of the workforce would have to be quarantining at any given moment from false positive tests alone?\n\n \n\n\n# 10 days is the policy, but a couple of those will be a weekend\nquarantine_workdays = 8\n# False positives *do not* have Covid *and* test positive\nquarantine_fp_per_day = np.sum( ~has_covid & rtpcr_positive )\nquarantine_fp_simultaneous = quarantine_fp_per_day * quarantine_workdays\nquarantine_fraction = quarantine_fp_simultaneous / n_employees\n\nprint( f'&gt; Fraction of workforce quarantined: **{quarantine_fraction * 100:0.2f}%**' )\n\n\n\nFraction of workforce quarantined: 23.13%"
+    "text": "Do you think this will scale well?\n\nSuppose quarantine lasts for 10 days (8 work days). What fraction of the workforce would have to be quarantining at any given moment from false positive tests alone?\n\n \n\n\n# 10 days is the policy, but a couple of those will be a weekend\nquarantine_workdays = 8\n# False positives *do not* have Covid *and* test positive\nquarantine_fp_per_day = np.sum( ~has_covid & rtpcr_positive )\nquarantine_fp_simultaneous = quarantine_fp_per_day * quarantine_workdays\nquarantine_fraction = quarantine_fp_simultaneous / n_employees\n\nprint( f'&gt; Fraction of workforce quarantined: **{quarantine_fraction * 100:0.2f}%**' )\n\n\n\nFraction of workforce quarantined: 22.83%"
   },
   {
     "objectID": "bayes.html#section-11",
     "href": "bayes.html#section-11",
     "title": "Gaining knowledge from tests",
     "section": "",
-    "text": "But, n.b.! This test also has an extremely high accuracy—that is, the probability of the test being correct:\n\n\n# == operates element by element on arrays\n# `a == b` is an array where each element is `True` if the\n# corresponding elements of `a` and `b` are equal\naccuracy_naive = np.sum( has_covid == rtpcr_positive ) / len( has_covid )\n\nprint( f'&gt; Naive accuracy: **{accuracy_naive * 100:0.2f}%**' )\n\n\n\nNaive accuracy: 96.99%\n\n\n\n\n\nThe accuracy of the test is hiding the fact that we’re actually doing quite a terrible job with the positive predictive value—the much more actionable piece of information—because the prevalence of Covid cases is so low!"
+    "text": "But, n.b.! This test also has an extremely high accuracy—that is, the probability of the test being correct:\n\n\n# == operates element by element on arrays\n# `a == b` is an array where each element is `True` if the\n# corresponding elements of `a` and `b` are equal\naccuracy_naive = np.sum( has_covid == rtpcr_positive ) / len( has_covid )\n\nprint( f'&gt; Naive accuracy: **{accuracy_naive * 100:0.2f}%**' )\n\n\n\nNaive accuracy: 97.03%\n\n\n\n\n\nThe accuracy of the test is hiding the fact that we’re actually doing quite a terrible job with the positive predictive value—the much more actionable piece of information—because the prevalence of Covid cases is so low!"
   },
   {
     "objectID": "bayes.html#whats-going-wrong",
@@ -397,13 +417,33 @@
     "text": "Statistical testing is not just a matter of selecting the “correct” test for a given question.\n\n \nBeing judicious about selecting the correct questions to apply the test to is a more powerful way to\n\n\n\nstrengthen the inferences gained through statistics;\n\n\n\n\nimprove the reproducibility of science; and\n\n\n\n\nmore responsibly use resources, like experimental animals, that we have an ethical obligation to minimize."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to UCSF!",
+    "objectID": "howto.html",
+    "href": "howto.html",
+    "title": "Protips",
     "section": "",
-    "text": "Welcome to UCSF!\nLet’s take a walk through the magical world of\n\nｓｔａｔｉｓｔｉｃｓ 📈🧮📊\n\n❤️‍🔥 Maxine\n\n\n\nGoals\n\nBe entertaining.\nProvoke thoughts.\n\n\n\nExpectations\n\nAsk questions.\nFind the interesting thing.",
+    "text": "This site was made with Quarto and hosted on GitHub Pages. You should try them both for your projects—they’re rad!\n\n\nThe search bar can find anything on this site or in any of the slide presentations; try it by pressing S!\n\n\n\nYou can find the code for this site and all slide decks on GitHub.\nAll code blocks for figures and demonstrations are actually executed each time the entire site and all the slide decks are rendered to HTML; this means that each time you view the site yourself from your own machine, you’ll get a new random result for everything!\n\n\n\n\nSlides are revendered with Reveal.js at build-time.\nWhen you’re in a slide presentation:\n\nPress SPACE to advance to the next slide; or, use the left and right arrow keys to go back and forth between slides. On mobile, swipe left or right.\nPress ESC or O to show the grid overview; slides within a section advance going down, and sections are arranged left-to-right.\nPress F to enter fullscreen mode.",
     "crumbs": [
-      "Home"
+      "How-to"
+    ]
+  },
+  {
+    "objectID": "howto.html#this-site",
+    "href": "howto.html#this-site",
+    "title": "Protips",
+    "section": "",
+    "text": "This site was made with Quarto and hosted on GitHub Pages. You should try them both for your projects—they’re rad!\n\n\nThe search bar can find anything on this site or in any of the slide presentations; try it by pressing S!\n\n\n\nYou can find the code for this site and all slide decks on GitHub.\nAll code blocks for figures and demonstrations are actually executed each time the entire site and all the slide decks are rendered to HTML; this means that each time you view the site yourself from your own machine, you’ll get a new random result for everything!",
+    "crumbs": [
+      "How-to"
+    ]
+  },
+  {
+    "objectID": "howto.html#slides",
+    "href": "howto.html#slides",
+    "title": "Protips",
+    "section": "",
+    "text": "Slides are revendered with Reveal.js at build-time.\nWhen you’re in a slide presentation:\n\nPress SPACE to advance to the next slide; or, use the left and right arrow keys to go back and forth between slides. On mobile, swipe left or right.\nPress ESC or O to show the grid overview; slides within a section advance going down, and sections are arranged left-to-right.\nPress F to enter fullscreen mode.",
+    "crumbs": [
+      "How-to"
     ]
   }
 ]
