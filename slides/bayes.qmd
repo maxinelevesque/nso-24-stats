@@ -5,6 +5,7 @@ author: Maxine Collard
 format:
     revealjs:
         output-file: bayes.html
+        embed-resources: true
         transition: slide
         background-transition: slide
         theme: simple
