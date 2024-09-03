@@ -685,7 +685,7 @@ Negative predictive value</strong> is the probability one <em>actually does not 
 </blockquote>
 <p><br>
 </p>
-<div id="ecd38a89" class="cell" data-execution_count="5">
+<div id="7fabed29" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="bu">help</span>( sample_results )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on function sample_results in module __main__:
@@ -710,7 +710,7 @@ sample_results(n, prevalence, sensitivity, specificity)
 
 <p>Let’s simulate one day of Covid tests at UCSF:</p>
 <div class="fragment">
-<div id="7b966c64" class="cell" data-execution_count="6">
+<div id="7ecd6e58" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># Approximately the number of employees at UCSF</span></span>
 <span id="cb6-2"><a href=""></a>n_employees <span class="op">=</span> <span class="dv">24000</span></span>
 <span id="cb6-3"><a href=""></a><span class="co"># Run our simulation and grab the results</span></span>
@@ -726,8 +726,8 @@ sample_results(n, prevalence, sensitivity, specificity)
 </div>
 <div class="cell fragment" data-execution_count="6">
 <blockquote>
-<p>Cases today: <strong>103</strong><br>
-Positive tests today: <strong>817</strong></p>
+<p>Cases today: <strong>107</strong><br>
+Positive tests today: <strong>785</strong></p>
 </blockquote>
 </div>
 </div>
@@ -738,7 +738,7 @@ Positive tests today: <strong>817</strong></p>
 <section class="slide level2">
 
 <p>As is always good practice, let’s take a look at a subsample of the raw data:</p>
-<div id="58ef8425" class="cell" data-execution_count="8">
+<div id="074f0f99" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="co"># Subplots allows us to lay out some axes (`ax`) inside of a</span></span>
 <span id="cb7-2"><a href=""></a><span class="co"># figure (`fig`) that we can manipulate later</span></span>
 <span id="cb7-3"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots( figsize <span class="op">=</span> (<span class="dv">12</span>, <span class="fl">1.2</span>) )</span>
@@ -768,7 +768,7 @@ Positive tests today: <strong>817</strong></p>
 <p><br>
 &nbsp;</p>
 <div class="fragment">
-<div id="95bb2bfc" class="cell" data-execution_count="10">
+<div id="db2ed31c" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="co"># (See code for the slides online)</span></span>
 <span id="cb8-2"><a href=""></a>ppv_naive, npv_naive <span class="op">=</span> predictive_value( has_covid, rtpcr_positive )</span>
 <span id="cb8-3"><a href=""></a></span>
@@ -781,8 +781,8 @@ Positive tests today: <strong>817</strong></p>
 </div>
 <div class="cell fragment" data-execution_count="10">
 <blockquote>
-<p>Naive PPV: <strong>8.81%</strong><br>
-Naive NPV: <strong>99.87%</strong></p>
+<p>Naive PPV: <strong>8.66%</strong><br>
+Naive NPV: <strong>99.83%</strong></p>
 </blockquote>
 </div>
 </div>
@@ -812,7 +812,7 @@ Naive NPV: <strong>99.87%</strong></p>
 </div>
 <p>&nbsp;</p>
 <div class="fragment">
-<div id="09f4d09f" class="cell" data-execution_count="11">
+<div id="b69a9ddd" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="co"># 10 days is the policy, but a couple of those will be a weekend</span></span>
 <span id="cb9-2"><a href=""></a>quarantine_workdays <span class="op">=</span> <span class="dv">8</span></span>
 <span id="cb9-3"><a href=""></a><span class="co"># False positives *do not* have Covid *and* test positive</span></span>
@@ -824,7 +824,7 @@ Naive NPV: <strong>99.87%</strong></p>
 </div>
 <div class="cell fragment" data-execution_count="11">
 <blockquote>
-<p>Fraction of workforce quarantined: <strong>24.83%</strong></p>
+<p>Fraction of workforce quarantined: <strong>23.90%</strong></p>
 </blockquote>
 </div>
 </div>
@@ -833,7 +833,7 @@ Naive NPV: <strong>99.87%</strong></p>
 <h2></h2>
 <p>But, <strong>n.b.</strong>! This test also has an extremely high <strong>accuracy</strong>—that is, the probability of the test being <em>correct</em>:</p>
 <div class="fragment">
-<div id="86399ab2" class="cell" data-execution_count="12">
+<div id="040be996" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="co"># == operates element by element on arrays</span></span>
 <span id="cb10-2"><a href=""></a><span class="co"># `a == b` is an array where each element is `True` if the</span></span>
 <span id="cb10-3"><a href=""></a><span class="co"># corresponding elements of `a` and `b` are equal</span></span>
@@ -843,7 +843,7 @@ Naive NPV: <strong>99.87%</strong></p>
 </div>
 <div class="cell fragment" data-execution_count="12">
 <blockquote>
-<p>Naive accuracy: <strong>96.77%</strong></p>
+<p>Naive accuracy: <strong>96.85%</strong></p>
 </blockquote>
 </div>
 </div>
@@ -904,7 +904,7 @@ All of the characteristics of the test itself are still exactly the same</strong
 <div class="fragment">
 <p><br>
 Let’s say that an exposure to a symptomatic case of Covid carries an associated risk of infection of 5%:</p>
-<div id="4085b2e0" class="cell" data-execution_count="13">
+<div id="a3b04a97" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb11-1" class="hljs-ln-code"><a href=""></a>covid_belief_sus <span class="op">=</span> <span class="fl">0.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -919,7 +919,7 @@ Let’s say that an exposure to a symptomatic case of Covid carries an associate
 
 <p>Let’s run a simulation of a group of employees with suspected Covid exposure:</p>
 <div class="fragment">
-<div id="42e50f79" class="cell" data-execution_count="14">
+<div id="2d63023e" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>n_sus <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb12-2"><a href=""></a>has_covid_sus, rtpcr_positive_sus <span class="op">=</span> sample_results( n_sus,</span>
 <span id="cb12-3"><a href=""></a>                                                    covid_belief_sus,</span>
@@ -936,8 +936,8 @@ Let’s say that an exposure to a symptomatic case of Covid carries an associate
 </div>
 <div class="cell fragment" data-execution_count="14">
 <blockquote>
-<p>Cases among the suspicious 🤔: <strong>48</strong><br>
-Positive tests among the suspicious 🤔: <strong>64</strong></p>
+<p>Cases among the suspicious 🤔: <strong>51</strong><br>
+Positive tests among the suspicious 🤔: <strong>76</strong></p>
 </blockquote>
 </div>
 </div>
@@ -948,7 +948,7 @@ Positive tests among the suspicious 🤔: <strong>64</strong></p>
 <br>
 <br>
 </p>
-<div id="8fd05fa2" class="cell" data-execution_count="15">
+<div id="21c64f7d" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots( figsize <span class="op">=</span> (<span class="dv">12</span>, <span class="fl">1.2</span>) )</span>
 <span id="cb13-2"><a href=""></a>sample_plot( ax, has_covid_sus, rtpcr_positive_sus )</span>
 <span id="cb13-3"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -969,7 +969,7 @@ Positive tests among the suspicious 🤔: <strong>64</strong></p>
 <p><br>
 <br>
 </p>
-<div id="7c122fec" class="cell" data-execution_count="16">
+<div id="c985090d" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>ppv_sus, npv_sus <span class="op">=</span> predictive_value( has_covid_sus, rtpcr_positive_sus )</span>
 <span id="cb14-2"><a href=""></a></span>
 <span id="cb14-3"><a href=""></a><span class="bu">print</span>( <span class="ss">f'&gt; Suspicious PPV: **</span><span class="sc">{</span>ppv_sus <span class="op">*</span> <span class="dv">100</span><span class="sc">:0.2f}</span><span class="ss">%**</span><span class="ch">\\</span><span class="ss">'</span> )</span>
@@ -977,8 +977,8 @@ Positive tests among the suspicious 🤔: <strong>64</strong></p>
 </div>
 <div class="cell fragment" data-execution_count="16">
 <blockquote>
-<p>Suspicious PPV: <strong>54.69%</strong><br>
-Suspicious NPV: <strong>98.61%</strong></p>
+<p>Suspicious PPV: <strong>51.32%</strong><br>
+Suspicious NPV: <strong>98.70%</strong></p>
 </blockquote>
 </div>
 </section>
@@ -1018,7 +1018,7 @@ Let’s see how this whole picture plays out as we “sweep through” a bunch o
 </section>
 <section id="section-15" class="slide level2 center smaller">
 <h2></h2>
-<div id="71d64fc4" class="cell" data-execution_count="18">
+<div id="714e7ad4" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># (See code in slide repo for implementations)</span></span>
 <span id="cb15-2"><a href=""></a></span>
 <span id="cb15-3"><a href=""></a><span class="co"># Run our simulation</span></span>
@@ -1244,7 +1244,7 @@ Cool, it’s significant! We got a <strong>positive test result</strong>.</p>
 <section id="recall-1" class="slide level2">
 <h2>Recall</h2>
 <p>When looking at Covid testing, <strong>increasing our prior belief of Covid infection to just 5%</strong> raised the PPV from 5% to 60%, <strong>for the exact same test</strong>. To make the test’s results more meaningful, we used <strong>knowledge</strong> of prior exposure to Covid to <strong>choose who to test</strong>.</p>
-<div id="6e7c6d7c" class="cell" data-execution_count="19">
+<div id="ad9594d4" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
