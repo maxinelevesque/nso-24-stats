@@ -1,6 +1,6 @@
 ---
 title: "Gaining knowledge from tests"
-subtitle: UCSF Neuroscience Orientation 2024
+subtitle: "UCSF NS Orientation 2024 — Stats II"
 author: Maxine Collard
 format:
     revealjs:
