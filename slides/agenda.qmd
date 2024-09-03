@@ -18,13 +18,13 @@
 ## 10:30–11:20 ~ <span style="opacity:0.4;">*Water* 🜄</span> Gaining knowledge from tests
 :::: {.columns}
 ::: {.column width="30%"}
-##### <a href="bayes.html" target="_blank">Slides</a>
+##### <a href="bayes.html" target="_blank">Slides</a> \[<a href="https://github.com/maxinelevesque/nso-24-stats/blob/main/slides/bayes.qmd" target="_blank">Source</a>\]
 ##### [PDF for Notes](notes/bayes.pdf)
 :::
 ::: {.column width="70%"}
 * a **simulated** nightmare
-* what does a **positive test** tell you?
-* what does a test **do**?
+* what does a **test result** tell you?
+* what do tests **really do**?
 * **using** tests in science
 :::
 ::::
