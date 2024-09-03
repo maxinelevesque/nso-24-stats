@@ -1,0 +1,1382 @@
+---
+title: "Gaining knowledge from tests"
+subtitle: UCSF Neuroscience Orientation 2024
+author: Maxine Collard
+format:
+    revealjs:
+        output-file: bayes.html
+        transition: slide
+        background-transition: slide
+        theme: simple
+---
+
+# A clairvoyant mouse? {background-color="bisque"}
+
+------------------------------------------------------------------------
+
+## A clairvoyant mouse?
+
+::: fragment
+\
+\
+You look at your data, and you see that you **reject the null hypothesis** that *manipulated mice do not predict the future* with a $p$-value of 0.014.\
+\
+\
+:::
+
+::: fragment
+### What do you do with this information?
+:::
+
+# Let's think about it another way {background-color="LightSalmon"}
+
+ 
+
+> **N.B.:** This example was originally made in September 2021, and has become less relatable over time.
+
+------------------------------------------------------------------------
+
+## Let's think about it another way {auto-animate="true"}
+
+::: fragment
+\
+\
+For the last four weeks, you've been doing nothing but sitting in your room alone studying for your qualifying exam, with **absolutely zero human contact**.
+:::
+
+::: {.fragment .fade-down}
+\
+You take it and pass—**hooray!**
+:::
+
+------------------------------------------------------------------------
+
+## Let's think about it another way {auto-animate="true"}
+
+\
+But while you've been away studying, UCSF has announced a new policy requiring all graduate students to be tested for Covid-19 daily. You must provide a negative test result before entering any research building on-campus!
+
+::: fragment
+> *No, not really.*
+:::
+
+::: fragment
+\
+You grab a test from one of the Color vending machines and wait at home for the results to come back. The next day, you get an email:
+:::
+
+------------------------------------------------------------------------
+
+\
+ 
+
+### `SARS-CoV-2 mRNA:`
+
+::: {.fragment .fade-down}
+### `DETECTED`
+:::
+
+ 
+
+::: fragment
+### Do you think you have Covid?
+:::
+
+ 
+
+::: fragment
+### Why do you think that?
+:::
+
+# Let's try a simulation! {background-color="SeaGreen"}
+
+------------------------------------------------------------------------
+
+## The scenario {auto-animate="true"}
+
+> **N.B.**: SF no longer tracks Covid case rates, so I'll be using last year's numbers.
+
+::: fragment
+-   Current rolling average for reported Covid cases in San Francisco: \~65 per day.
+:::
+
+::: fragment
+-   SF's population is \~815,000. So, **reported** incidence of Covid in SF: \~7.97 per 100,000 per day.
+:::
+
+::: fragment
+-   Let's aim high: assume Covid incidence is **4x reported**: \~31.88 per 100,000 per day.
+:::
+
+------------------------------------------------------------------------
+
+## The scenario {auto-animate="true"}
+
+ 
+
+-   To get to prevalence, let's assume everyone infected has Covid for 14 days.
+
+::: fragment
+-   So, ballpark prevalence of Covid in SF: \~**111.6 per 100,000**.
+:::
+
+::: fragment
+> If you were to pick a person at random from San Francisco with no other knowledge, this would be about the chance of picking someone who currently has Covid.
+:::
+
+------------------------------------------------------------------------
+
+##   {.center}
+
+```{python}
+covid_prevalence = 446.32 / 100000
+```
+
+``` {.python code-line-numbers="10-11"}
+# September 2021 (using reported case count)
+# covid_prevalence = 350 / 100000
+
+# August 2022 (using reported case count)
+# covid_prevalence = 288.4 / 100000
+
+# September 2023 (using 4x reported case count)
+# covid_prevalence = 446.32 / 100000
+
+# September 2024 (no more case counts, using 2023 data)
+covid_prevalence = 446.32 / 100000
+```
+
+###  
+
+------------------------------------------------------------------------
+
+## Recall
+
+ 
+
+The $p$-value is defined by thinking about what our observations would be by chance if we **presuppose that the null hypothesis is in fact true**:
+
+::: fragment
+$$ p = \mathrm{Pr}(\textrm{we observe a difference} \mid \textrm{there is no difference}) $$
+:::
+
+::: fragment
+> This is convenient to use, because we can always **impose** the null hypothesis by shuffling our data. This is called **permutation testing**.
+:::
+
+------------------------------------------------------------------------
+
+##   {background-color="black" background-image="figures/ppv/f7.png" background-size="contain"}
+
+------------------------------------------------------------------------
+
+##   {background-color="black" background-image="figures/ppv/f6.png" background-size="contain"}
+
+------------------------------------------------------------------------
+
+Usually, diagnostic tests are evaluated kind of like $p$-values: we use measures that ask how the *test* behaves when we **pre-suppose the truth**.
+
+::: fragment
+**Sensitivity** measures the probability that a person tests positive **given that they actually have the disease**:
+
+$$ \mathrm{sensitivity} := \mathrm{Pr}(\textrm{test }+ \mid \textrm{actually }+) $$
+:::
+
+::: fragment
+**Specificity** measures the probability that a person tests negative **given that they actually *do not* have the disease**:
+
+$$ \mathrm{specificity} := \mathrm{Pr}(\textrm{test }- \mid \textrm{actually }-) $$
+:::
+
+------------------------------------------------------------------------
+
+##   {background-color="black" background-image="figures/ppv/f8.png" background-size="contain"}
+
+------------------------------------------------------------------------
+
+##  {background-color="LightCyan"}
+
+> **N.B.**: The $p$-value can be thought of as
+>
+> $$ p = \mathrm{Pr}(\textrm{test }+ \mid \textrm{actually }-) $$
+>
+> ::: fragment
+> Because there are only two test outcomes, $+$ and $-$, this means that
+>
+> $$\begin{eqnarray*}
+> p & = & 1 - \mathrm{Pr}(\textrm{test }- \mid \textrm{actually }-) \\
+> & = & 1 - \mathrm{specificity}
+> \end{eqnarray*}$$
+> :::
+>
+> ::: fragment
+> So, the $p$-value is in the same "family" of measures about a test as sensitivity and specificity.
+> :::
+
+------------------------------------------------------------------------
+
+## Back to the code
+
+```{python}
+rtpcr_sensitivity = 0.733
+rtpcr_specificity = 0.97
+```
+
+::: fragment
+Let's suppose that the currently used RT-PCR test for Covid has approximately the following characteristics:
+
+``` {.python code-line-numbers="7,9"}
+# September 2021
+# rtpcr_sensitivity = 0.777
+# rtpcr_specificity = 0.988
+
+# August 2022
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7350782/
+rtpcr_sensitivity = 0.733
+# https://www.uptodate.com/contents/covid-19-diagnosis
+rtpcr_specificity = 0.97
+
+# September 2023: These characteristics haven't appreciably changed
+
+# September 2024: "
+```
+:::
+
+::: fragment
+> **N.B.**: Finding accurate values is challenging in practice.
+:::
+
+------------------------------------------------------------------------
+
+##  {.center background-color="LightCyan"}
+
+> **N.B.**: We can compute the $p$-value of this test using the formula from earlier, $1 - \textrm{specificity}$:
+
+\
+ 
+
+```{python}
+#| echo: true
+#| output: asis
+print( f'> $p$ = **{1 - rtpcr_specificity:0.4f}**' )
+```
+
+# You just got a positive test {background-color="purple"}
+
+::: fragment
+ 
+
+What do the sensitivity and specificity **tell** you?
+:::
+
+------------------------------------------------------------------------
+
+You already **know** that you've tested positive. What you would like to **infer** is whether or not you actually have Covid.
+
+::: fragment
+ 
+
+### Sensitivity and specificity do not tell you this.
+
+And so, neither do $p$-values!
+:::
+
+::: fragment
+\
+What you want to know are the quantities with the **opposite conditioning**:
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+$$
+p = \mathrm{Pr}(\textrm{test }+ \mid \textrm{actually }-)
+$$
+:::
+
+::: {.fragment .fade-down}
+$$
+\textrm{?} = \mathrm{Pr}(\textrm{actually }+ \mid \textrm{test }+)
+$$
+:::
+
+###  
+
+------------------------------------------------------------------------
+
+##   {background-color="black" background-image="figures/ppv/f9.png" background-size="contain"}
+
+------------------------------------------------------------------------
+
+**Positive predictive value** is the probability one *actually has the disease* **given** a positive test result:
+
+$$ \mathrm{PPV} := \mathrm{Pr}(\textrm{actually }+ \mid \textrm{test }+) $$
+
+::: fragment
+> Now that you have a positive Covid test, the **PPV** is the probability that you **actually** have Covid.
+:::
+
+::: fragment
+**\
+Negative predictive value** is the probability one *actually does not have the disease* **given** a negative test result:
+
+$$ \mathrm{NPV} := \mathrm{Pr}(\textrm{actually }- \mid \textrm{test }-) $$
+:::
+
+------------------------------------------------------------------------
+
+##   {background-color="black" background-image="figures/ppv/f10.png" background-size="contain"}
+
+------------------------------------------------------------------------
+
+## What do you think are the PPV and NPV for the RT-PCR test? {.center}
+
+```{python}
+import numpy as np
+
+# I'm going to be re-using this simulation a lot, so I'll make it a function
+def sample_results( n, prevalence, sensitivity, specificity ):
+    """Sample disease presence and test results with the given characteristics
+    
+    Arguments:
+    n -- The number of individiuals to sample
+    prevalence -- The probability of finding the actual disease in the population
+    sensitivity -- The probability of testing positive given one has the disease
+    specificity -- The probability of testing negative given one does not have the disease
+
+    Reutrns:
+    has_disease -- Shape (n,), whether each individual has the disease
+    test_results -- Shape (n,), whether each individual tests positive for the disease
+    """
+    
+    # First, simulate the "truth":
+    # The fraction of the time that a uniform random number between 0 and 1
+    # is below `prevalence` is ... `prevalence`!
+    has_disease = np.random.uniform( size = (n,) ) < prevalence
+    
+    # Now, use sensitivity and specificity to determine test results based on the truth
+    
+    # Pre-allocate where I'm going to store the results
+    test_results = np.zeros( (n,), dtype = bool )
+    # We need a "hidden" random variable to determine the results of each test
+    hidden_randoms = np.random.uniform( size = (n,) )
+    
+    # Iterate over each individual in the population
+    # N.B.: I'm doing some Python magic here:
+    # * `enumerate` allows me to iterate through a something and also keep track of its index
+    # * `zip` allows me to "glue together" two iterable things (like arrays) element by element.
+    # Writing my code this way helps prevent me from losing track of what index belongs to what
+    for i_individual, (individual_has_disease, individual_hidden) in enumerate( zip( has_disease, hidden_randoms ) ):
+        if individual_has_disease:
+            # As above, this will be true `sensitivity` portion of the time
+            if individual_hidden < sensitivity:
+                # *Given* the individual has the disease, `sensitivity` portion of the time,
+                # the person will test *positive*
+                test_results[i_individual] = True
+            else:
+                # ... otherwise, they test negative
+                test_results[i_individual] = False
+        else:
+            if individual_hidden < specificity:
+                # *Given* the individual *does not* have the disease, `specificity` portion of the time,
+                # the person will test *negative*
+                test_results[i_individual] = False
+            else:
+                # ... otherwise, they test positive
+                test_results[i_individual] = True
+    
+    return has_disease, test_results
+```
+
+------------------------------------------------------------------------
+
+##  {background-color="LightCyan"}
+
+> **N.B.**: Always write docstrings for your code:
+
+\
+ 
+
+```{python}
+#| echo: true
+help( sample_results )
+```
+
+------------------------------------------------------------------------
+
+Let's simulate one day of Covid tests at UCSF:
+
+::: fragment
+```{python}
+#| echo: true
+#| output: asis
+#| output-location: fragment
+
+# Approximately the number of employees at UCSF
+n_employees = 24000
+# Run our simulation and grab the results
+# (See code for the slides online)
+has_covid, rtpcr_positive = sample_results( n_employees,
+                                            covid_prevalence,
+                                            rtpcr_sensitivity,
+                                            rtpcr_specificity )
+# If I put an f in front of my string, I can use curly braces to
+# put Python code inside of it
+print( f'> Cases today: **{np.sum( has_covid )}**\\' )
+print( f'> Positive tests today: **{np.sum( rtpcr_positive )}**' )
+```
+:::
+
+::: fragment
+Clearly something funky is going on: **there are way more positive tests than cases**!
+:::
+
+------------------------------------------------------------------------
+
+```{python}
+import matplotlib.pyplot as plt
+
+# I'm going to make the same plot later, so I'll make a function I can reuse so I don't duplicate code
+def sample_plot( ax, has_disease, test_results,
+                 n_sample = 1000 ):
+    """Plot a bit of the data from `sample_results`
+    
+    Arguments:
+    ax -- The axis handle to plot inside of
+    has_disease, test_results -- Output from `sample_results
+    
+    Keyword arguments:
+    n_sample -- Number of individuals to show in the plot
+    """
+
+    # np.c_ takes two arrays and jams them together as *c*olumns
+    # Then, .T *T*ransposes it, so that they're rows
+    raster = np.c_[has_disease, test_results].T.astype( float )
+    # I only want to display a little part of the whole raster, cause it's huge, so I slice it with :
+    raster = raster[:, :n_sample]
+    
+    # I'm assuming here that I've created an "axes" object that I can plot inside of
+    # This makes it so that I can re-use the same function on multiple plots in the same figure!
+    ax.imshow( raster,
+               aspect = 'auto',
+               interpolation = 'none', ) # These are just my personal preferences for image plots
+
+    ax.set_xlabel( 'Sample #' )
+    
+    ax.set_yticks( [0, 1] )
+    ax.set_yticklabels( ['Has Covid?', 'Test Result'],
+                        rotation = 10,
+                        fontsize = 16 )
+```
+
+As is always good practice, let's take a look at a subsample of the raw data:
+
+```{python}
+#| echo: true
+#| output-location: fragment
+
+# Subplots allows us to lay out some axes (`ax`) inside of a
+# figure (`fig`) that we can manipulate later
+fig, ax = plt.subplots( figsize = (12, 1.2) )
+
+# Use the plotting function we just made on these axes
+# (See code for the slides online)
+sample_plot( ax, has_covid, rtpcr_positive )
+
+# We're all done building the plots, we want to displaly them now
+plt.show()
+```
+
+::: fragment
+By eye, it *definitely* looks like there are a lot of false positives.
+:::
+
+------------------------------------------------------------------------
+
+```{python}
+# Again, I'm going to be doing these computations a lot, so I'll make a function I can re-use
+def predictive_value( has_disease, test_results ):
+    """Determine positive and negative predictive values from a sample
+    
+    Arguments:
+    has_disease -- Array of bool, whether each individual has the disease
+    test_results -- Array of bool, whether each individual tests positive for the disease
+
+    Reutrns:
+    ppv -- The sample positive predictive value
+    npv -- The sample negative predictive value
+    """
+    
+    # PPV
+    n_test_pos = np.sum( test_results )
+    # & operates on boolean arrays element by element
+    # So `a & b` is an array where each entry is `True` if the corresponding entries of both
+    # `a` and `b` are both `True`
+    # True positives are those that have the disease *and* test positive
+    n_true_pos = np.sum( has_disease & test_results )
+    ppv = n_true_pos / n_test_pos
+    
+    # NPV
+    # ~ operates on boolean arrays element by element
+    # So `~a` is an array where each entry is `True` if the corresponding entry of `a` is `False`
+    n_test_neg = np.sum( ~test_results )
+    # True negatives are those that *do not* have the disease *and* *do not* test positive
+    n_true_neg = np.sum( (~has_disease) & (~test_results) )
+    npv = n_true_neg / n_test_neg
+    
+    return ppv, npv
+```
+
+## What are the PPV and NPV?
+
+\
+ 
+
+::: fragment
+```{python}
+#| echo: true
+#| output: asis
+#| output-location: fragment
+
+# (See code for the slides online)
+ppv_naive, npv_naive = predictive_value( has_covid, rtpcr_positive )
+
+# We can do math in our curly braces; here I convert the ratios into
+# percents. The `:0.2f` at the end tells Python that I want 2 digits
+# after the decimal point (not at all intuitive; blame the C people
+# who wrote the original `printf` function).
+print( f'> Naive PPV: **{ppv_naive * 100:0.2f}%**\\' )
+print( f'> Naive NPV: **{npv_naive * 100:0.2f}%**' )
+```
+:::
+
+------------------------------------------------------------------------
+
+Let's talk about the good news first:
+
+::: fragment
+-   A *negative* test is **extremely informative**: if you receive a negative test result, you can say with almost certainty that you are in the clear.
+:::
+
+::: fragment
+And now, the bad news:
+:::
+
+::: fragment
+-   In this setup, a *positive* test is **not very informative**: in fact, if you were to receive a positive RT-PCR test, *there is a \~90% chance that you still don't have Covid*.
+-   Put another way, **more than 9 out of every 10 positive tests are actually false positives**.
+:::
+
+------------------------------------------------------------------------
+
+## Do you think this will scale well?
+
+::: fragment
+Suppose quarantine lasts for 10 days (8 work days). What fraction of the workforce would have to be quarantining at any given moment from false positive tests alone?
+:::
+
+ 
+
+::: fragment
+```{python}
+#| echo: true
+#| output: asis
+#| output-location: fragment
+
+# 10 days is the policy, but a couple of those will be a weekend
+quarantine_workdays = 8
+# False positives *do not* have Covid *and* test positive
+quarantine_fp_per_day = np.sum( ~has_covid & rtpcr_positive )
+quarantine_fp_simultaneous = quarantine_fp_per_day * quarantine_workdays
+quarantine_fraction = quarantine_fp_simultaneous / n_employees
+
+print( f'> Fraction of workforce quarantined: **{quarantine_fraction * 100:0.2f}%**' )
+```
+:::
+
+------------------------------------------------------------------------
+
+##  {background-color="LightCyan"}
+
+But, **n.b.**! This test also has an extremely high **accuracy**—that is, the probability of the test being *correct*:
+
+::: fragment
+```{python}
+#| echo: true
+#| output: asis
+#| output-location: fragment
+
+# == operates element by element on arrays
+# `a == b` is an array where each element is `True` if the
+# corresponding elements of `a` and `b` are equal
+accuracy_naive = np.sum( has_covid == rtpcr_positive ) / len( has_covid )
+
+print( f'> Naive accuracy: **{accuracy_naive * 100:0.2f}%**' )
+```
+:::
+
+::: fragment
+\
+The accuracy of the test is hiding the fact that we're actually doing quite a terrible job with the *positive predictive value*—the much more actionable piece of information—because **the prevalence of Covid cases is so low**!
+:::
+
+------------------------------------------------------------------------
+
+## What's going wrong? {.center}
+
+::: fragment
+ 
+
+### Is this a bad test?
+:::
+
+::: fragment
+ 
+
+### Do you still think you have Covid?
+:::
+
+# A better way to use Covid tests {background-color="SteelBlue"}
+
+------------------------------------------------------------------------
+
+## A better way to use Covid tests {auto-animate="true"}
+
+\
+ 
+
+In our simulation, the **prevalence** of Covid was thought of as **the probability that someone in our sample had Covid**. We took this to be the prevalence of Covid in San Francisco, under the assumption that we were testing people essentially randomly, and had no criteria for how we were selecting people to test.
+
+## A better way to use Covid tests {auto-animate="true"}
+
+\
+\
+After briefly quarantining a substantial portion of its workforce, UCSF has decided to try a new Covid testing schema.
+
+::: fragment
+> In medicine, we call this "*continual improvement"*!
+:::
+
+::: fragment
+Now, **only people who have an exposure to a confirmed symptomatic case** will be tested.
+:::
+
+## A better way to use Covid tests {auto-animate="true"}
+
+\
+Before, we had no clue about the people being tested. This new criterion means we have more **knowledge** (of the exposure).
+
+::: fragment
+This knowledge changes our **prior belief**—before even running the test!—of whether or not the person being tested has Covid: we *expect* that someone who has had an exposure is more likely to have Covid than someone random from the general population.
+:::
+
+## A better way to use Covid tests {auto-animate="true"}
+
+**\
+All of the characteristics of the test itself are still exactly the same**—the same reagents, the same technique, everything.
+
+The only thing we'll change to simulate this new scenario is the **proportion of tested people who have Covid**.
+
+::: fragment
+\
+Let's say that an exposure to a symptomatic case of Covid carries an associated risk of infection of 5%:
+
+```{python}
+#| echo: true
+covid_belief_sus = 0.05
+```
+:::
+
+------------------------------------------------------------------------
+
+## What do you think will happen to the PPV of our test in this new scheme? {.center}
+
+\
+ 
+
+### How about the NPV?
+
+------------------------------------------------------------------------
+
+Let's run a simulation of a group of employees with suspected Covid exposure:
+
+::: fragment
+```{python}
+#| echo: true
+#| output: asis
+#| output-location: fragment
+
+n_sus = 1000
+has_covid_sus, rtpcr_positive_sus = sample_results( n_sus,
+                                                    covid_belief_sus,
+                                                    rtpcr_sensitivity,  # Same as before!
+                                                    rtpcr_specificity ) # Same as before!
+
+# Python is fully Unicode compatible for strings, so there's no
+# reason not to include emoji 🤪
+print( f'> Cases among the suspicious 🤔: **{np.sum( has_covid_sus )}**\\' )
+print( f'> Positive tests among the suspicious 🤔: **{np.sum( rtpcr_positive_sus )}**' )
+
+# You can't use emoji in variable names, though 😢
+# Got to switch to Haskell for that ...
+```
+:::
+
+------------------------------------------------------------------------
+
+## Dummy check, round 2
+
+\
+\
+\
+ 
+
+```{python}
+#| echo: true
+#| output-location: fragment
+
+fig, ax = plt.subplots( figsize = (12, 1.2) )
+sample_plot( ax, has_covid_sus, rtpcr_positive_sus )
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+Already this is looking much more reasonable. **What are the PPV and the NPV**?
+
+\
+\
+ 
+
+```{python}
+#| echo: true
+#| output: asis
+#| output-location: fragment
+ppv_sus, npv_sus = predictive_value( has_covid_sus, rtpcr_positive_sus )
+
+print( f'> Suspicious PPV: **{ppv_sus * 100:0.2f}%**\\' )
+print( f'> Suspicious NPV: **{npv_sus * 100:0.2f}%**' )
+```
+
+------------------------------------------------------------------------
+
+## Aha!
+
+::: fragment
+\
+ 
+
+The PPV has jumped dramatically, from about 10% to about **60%**!
+:::
+
+::: fragment
+In this setting—where we have some **additional knowledge** about who we're testing—the **same exact test** has become **a lot more useful**.
+:::
+
+------------------------------------------------------------------------
+
+##   {background-color="black" background-image="figures/ppv/f11.png" background-size="contain"}
+
+------------------------------------------------------------------------
+
+##  {.center background-color="LightCyan"}
+
+> **N.B.**: There is no free lunch, of course!
+>
+> The cost we pay is that the NPV in this scenario is now *slightly* lower!
+
+------------------------------------------------------------------------
+
+##  {.center background-color="PaleGreen"}
+
+The critical takeaway message is this:
+
+::: fragment
+### How useful a test is depends on our prior belief about the thing we're testing for.
+:::
+
+------------------------------------------------------------------------
+
+## How much knowledge do we need? {.center}
+
+\
+Let's see how this whole picture plays out as we "sweep through" a bunch of different possible priors.
+
+```{python}
+# Fancy progress bar!
+from tqdm import tqdm
+
+def belief_sweep( sensitivity, specificity, beliefs,
+                  n_sims = 100,
+                  n_sample = 1000 ):
+    """Determine PPV and NPV across a wide range of priors
+    
+    Arguments:
+    sensitivity, specificity -- The characteristics of the test
+    beliefs -- Array of prior beliefs to test
+    
+    Keyword arguments:
+    n_sims -- The number of simulations to run for each prior belief level
+    n_sample -- The number of individuals to sample in each simulation
+    
+    Reutrns:
+    ppvs_sweep, npvs_sweep -- Shape (n_beliefs, n_sims)
+        Arrays of the PPV and NPV for each simulation at each prior belief level
+    """
+    
+    n_beliefs = len( beliefs )
+    
+    # Pre-allocate all of the results we're going to get; we'll fill this in as we go!
+    ppvs_sweep = np.zeros( (n_beliefs, n_sims) )
+    npvs_sweep = np.zeros( (n_beliefs, n_sims) )
+
+    # `tqdm` turns any iterable into a progress bar like magic!
+    # `enumerate` doesn't know how long its contents are (they can be infinite!),
+    # so we have to tell `tqdm` how long it is if we want it to show the total
+    for i_sweep, belief in tqdm( enumerate( beliefs ), total = n_beliefs ):
+        # At each level of belief, we'll run `n_sims` number of simulations, to get
+        # a solid distribution
+        for i_sim in range( n_sims ):
+            # Now, because we put all our simulations in functions, we can just call them!
+            has_disease, test_positive = sample_results( n_sample,
+                                                         belief,
+                                                         sensitivity,
+                                                         specificity )
+            ppvs_sweep[i_sweep, i_sim], npvs_sweep[i_sweep, i_sim] = predictive_value( has_disease, test_positive )
+            
+    return ppvs_sweep, npvs_sweep
+
+# A convenience function for plotting an error corridor
+def plot_band( ax, x, values,
+               axis = None,
+               mode = 'sd',
+               color = '',
+               kwargs_plot = dict(),
+               kwargs_fill = dict() ):
+    """Plot an error corridor derived from `values`
+    
+    Arguments:
+    x -- The horizontal coordinates to plot
+    values -- The data array to derive the error corridor from
+    
+    Keyword arguments:
+    axis -- The axis along which to compute dispersion from `values`
+        (Default: None, which is the first non-singleton axis)
+    mode -- What kind of error corridor to plot. Valid choices are 'sd'
+        for standard deviation, and 'se' for standard error.
+        (Default: 'sd')
+    color -- The color shared by the trace and corridor
+        (Default: `matplotlib` next default)
+    kwargs_plot, kwargs_fill: Keyword arguments to be passed to `plot` or
+        `fill_between`, respectively (Default: empty)
+    """
+    
+    if mode.lower() == 'sd':
+        values_middle = np.mean( values, axis = axis )
+        values_err = np.std( values, axis = axis )
+    elif mode.lower() == 'se':
+        values_middle = np.mean( values, axis = axis )
+        n = values.shape[axis]
+        values_err = (1 / np.sqrt( n )) * np.std( values, axis = axis )
+    # TODO: implement median with [0.25, 0.75] quantiles, bootstrap, multiple hypothesis correction, ...
+    else:
+        # Always good practice to raise Exceptions
+        raise ValueError( f'Unknown erorr mode: {mode}' )
+    
+    # `**kwargs_plot` tells Python to pass this dict to `plot` as keyword arguments
+    # This makes it so that I can control any behavior of `plot` (and `fill_between`, below)
+    # without having to explicitly write out every argument I want to control beforehand!
+    ax.plot( x, values_middle, f'{color}-', **kwargs_plot )
+    ax.fill_between( x,
+                     values_middle - values_err,
+                     values_middle + values_err,
+                     color = color,
+                     alpha = 0.2,
+                     **kwargs_fill )
+    
+def plot_vline( ax, x, *args, **kwargs ):
+    """Plot a vertical line at x-coordinate `x` inside of axes `ax`
+
+    Other arguments or keyword arguments are passed directly to `plot`
+    """
+    yl = ax.get_ylim()
+    ax.plot( [x, x], yl, *args, **kwargs )
+    ax.set_ylim( yl )
+    
+def plot_sweep( ax, beliefs, ppvs, npvs,
+                annotations = None,
+                xlabel = 'Prior belief' ):
+    """Make a summary plot of PPV / NPV results from `belief_sweep`
+    
+    Arguments:
+    ax -- The axes object to plot inside of
+    beliefs -- The prior belief values used for the simulations
+    ppvs, npvs -- The results from `belief_sweep`
+    
+    Keyword arguments:
+    annotations -- List of tuples of form (x, spec, label)
+        Plots a vertical line with the given spec and label at each x
+        (Default: no annotations)
+    xlabel -- The x-axis label (Default: 'Prior belief')
+    """
+    
+    # Handle default value (None)
+    if annotations is None:
+        annotations = []
+    
+    # Here I pass in the 'label' keyword argument so that `matplotlib`
+    # makes a nice legend when I call `legend` later
+    plot_band( ax, beliefs, ppvs, color = 'b',
+               axis = 1,
+               kwargs_plot = { 'label': 'PPV'} )
+    plot_band( ax, beliefs, npvs, color = 'r',
+               axis = 1,
+               kwargs_plot = { 'label': 'NPV'} )
+    
+    for x, spec, label in annotations:
+        # Plot a vertical line for each annotation
+        plot_vline( ax, x, spec, label = label )
+    
+    ax.set_xlim( np.min( beliefs ), np.max( beliefs ) )
+    
+    ax.set_xlabel( xlabel, fontsize = 16 )
+    ax.set_ylabel( 'Predictive value', fontsize = 16 )
+    ax.legend( fontsize = 16 )
+```
+
+------------------------------------------------------------------------
+
+##  {.center .smaller}
+
+```{python}
+#| echo: true
+#| output-location: fragment
+
+# (See code in slide repo for implementations)
+
+# Run our simulation
+# Pick beliefs linearly spaced between 0 and 0.25
+covid_beliefs_sweep = np.linspace( 0, 0.25, 100 )
+ppvs_sweep, npvs_sweep = belief_sweep( rtpcr_sensitivity,
+                                       rtpcr_specificity,
+                                       covid_beliefs_sweep )
+# Build our plot
+fig, ax = plt.subplots( figsize = (12, 4) )
+plot_sweep( ax, covid_beliefs_sweep, ppvs_sweep, npvs_sweep,
+            annotations = [(covid_prevalence, 'k--', 'Random testing'),
+                           (covid_belief_sus, 'm--', 'Testing after confirmed exposure')],
+            xlabel = 'Prior belief of Covid' )
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+In this example, we saw that the PPV of our Covid test depended strongly on the scheme we used to select which people to test, even while **the test itself remained entirely the same**.
+
+::: fragment
+From the previous slide, even **very weak improvements in our prior belief** can lead to **vast changes in the utility of our test**!
+:::
+
+::: fragment
+\
+This means that **PPV is not just a statement about the test**.
+:::
+
+::: fragment
+### PPV is a statement about how the test is used.
+:::
+
+# What does a test do? {background-color="Gold"}
+
+------------------------------------------------------------------------
+
+## What does a test do? {auto-animate="true"}
+
+\
+\
+ 
+
+Before we ran the test, we had some **prior knowledge** about whether we had Covid:
+
+$$ \mathrm{Pr}(\textrm{actually }+) $$
+
+## What does a test do? {auto-animate="true"}
+
+When we get **new knowledge**—the result of the test—we **update** our belief of whether we have Covid. Our knowledge about whether we have Covid *after* the update caused by the test is precisely the **PPV**:
+
+$$\begin{eqnarray*}
+&\mathrm{Pr}(\textrm{actually }+) & \\
+& \downarrow & \\
+& \mathrm{Pr}(\textrm{actually }+ \mid \textrm{test }+) &
+\end{eqnarray*}$$
+
+This is also known as the **posterior probability** (as in, the probability that we have *after*) given a positive test.
+
+------------------------------------------------------------------------
+
+##   {background-color="black" background-image="figures/ppv/f12.png" background-size="contain"}
+
+------------------------------------------------------------------------
+
+##  {.center background-color="LightCyan"}
+
+> **N.B.**: The amount of information provided by a test result is called the result's **Bayes factor**, $K$.
+>
+> ::: fragment
+> While the PPV—which is the **posterior probability** of disease given a positive test—changes depending on the prior, the following **ratios** are always proportional:
+>
+> $$ \frac{\mathrm{Pr}(\textrm{actually }+ \mid \textrm{test }+)}{\mathrm{Pr}(\textrm{actually }- \mid \textrm{test }+)} = K\,\frac{\mathrm{Pr}(\textrm{actually }+)}{\mathrm{Pr}(\textrm{actually }-)}$$
+> :::
+>
+> ::: fragment
+> So, the Bayes factor tells us how much receiving a positive test result **changes** our prior belief. Test results with larger Bayes factors **change our beliefs more**.
+> :::
+
+# Tests in science {background-color="FireBrick"}
+
+------------------------------------------------------------------------
+
+## Tests in science {auto-animate="true"}
+
+ 
+
+For Covid testing, we obtained some bit of noisy data (a positive test result), and sought to **infer** something about what was **actually** happening (whether we truly have Covid).
+
+\
+We made this inference quantitative using the Covid RT-PCR test's **PPV**:
+
+$$ \mathrm{PPV} = \mathrm{Pr}(\textrm{actually }+ \mid \textrm{test }+) $$
+
+## Tests in science {auto-animate="true"}
+
+\
+ 
+
+In science, we use **statistical tests**.
+
+\
+Just like the Covid RT-PCR, statistical tests are **noisy** bits of data. What we would like to do is to **infer** something about what is **actually** happening in the world on the basis of these test results.
+
+------------------------------------------------------------------------
+
+## *Example*—Correlation {auto-animate="true"}
+
+Let's say that you're analyzing some data. You plug two variables you're working on, `x` and `y`, into a magic black box like `scipy.stats.pearsonr`, and it pops out:
+
+ 
+
+::: fragment
+``` python
+>>> scipy.stats.pearsonr( x, y )
+(0.21365304326850618, 0.03281172835181021)
+```
+
+> (The first value is the correlation $r$, the second is the $p$-value.)
+:::
+
+::: fragment
+\
+Cool, it's significant! We got a **positive test result**.
+:::
+
+## *Example*—Correlation {auto-animate="true"}
+
+ 
+
+Given this:
+
+``` python
+>>> scipy.stats.pearsonr( x, y )
+(0.21365304326850618, 0.03281172835181021)
+```
+
+###  
+
+### ... what do you now know about whether there is [actually]{.underline} a relationship between `x` and `y`?
+
+## *Example*—Correlation {auto-animate="true"}
+
+ 
+
+``` python
+>>> scipy.stats.pearsonr( x, y )
+(0.21365304326850618, 0.03281172835181021)
+```
+
+This information, by itself, is **not a statement about whether the null hypothesis is actually true or false**—just as a positive Covid test is not, by itself, a statement about whether you actually have Covid.
+
+::: fragment
+ 
+
+### We must infer the truth from the test
+:::
+
+::: fragment
+#### What does this inference depend on?
+:::
+
+## *Example*—Correlation {auto-animate="true"}
+
+ 
+
+``` python
+>>> scipy.stats.pearsonr( x, y )
+(0.21365304326850618, 0.03281172835181021)
+```
+
+With our shiny positive test result, what we really care about is the **posterior probability**, given we saw this test result, of whether there is a relationship between `x` and `y`. This is precisely the **PPV**:
+
+$$ \mathrm{PPV} := \mathrm{Pr}(\textrm{actually a relationship} \mid \textrm{test rejects null hyp.}) $$
+
+## *Example*—Correlation {auto-animate="true"}
+
+ 
+
+``` python
+>>> scipy.stats.pearsonr( x, y )
+(0.21365304326850618, 0.03281172835181021)
+```
+
+$$ \mathrm{PPV} := \mathrm{Pr}(\textrm{actually a relationship} \mid \textrm{test rejects null hyp.}) $$
+
+But, just as before with Covid RT-PCR,
+
+### PPV depends on [our prior knowledge]{.underline} of whether there is a real relationship between `x` and `y`—
+
+not just the characteristics of `pearsonr`!
+
+## *Example*—Correlation {auto-animate="true"}
+
+ 
+
+``` python
+>>> scipy.stats.pearsonr( x, y )
+(0.21365304326850618, 0.03281172835181021)
+```
+
+Suppose I got this result by going out into the world and running the `pearsonr` function between every pair of two datasets I could get my hands on.
+
+::: fragment
+What is the probability that any two of those randomly chosen datasets are **actually** causally related to one another? That is, what is the **prior**,
+
+$$ \mathrm{Pr}(\textrm{actually a relationship}) $$
+:::
+
+## *Example*—Correlation {auto-animate="true"}
+
+ 
+
+``` python
+>>> scipy.stats.pearsonr( x, y )
+(0.21365304326850618, 0.03281172835181021)
+```
+
+ 
+
+What is the probability that any two of those randomly chosen datasets are **actually** causally related to one another? That is, what is the **prior**,
+
+$$ \mathrm{Pr}(\textrm{actually a relationship}) $$
+
+### It is astronomically small.
+
+## *Example*—Correlation {auto-animate="true"}
+
+ 
+
+``` python
+>>> scipy.stats.pearsonr( x, y )
+(0.21365304326850618, 0.03281172835181021)
+```
+
+ 
+
+In this experimental setup of **randomly testing** correlations, what is the **PPV**?
+
+::: {.fragment .fade-down}
+ 
+
+### It is exceedingly low.
+:::
+
+## *Example*—Correlation {auto-animate="true"}
+
+ 
+
+``` python
+>>> scipy.stats.pearsonr( x, y )
+(0.21365304326850618, 0.03281172835181021)
+```
+
+ 
+
+So, how do I interpret this result I just saw, that `pearsonr` rejected the null hypothesis of no relationship between `x` and `y`?
+
+::: {.fragment .fade-down}
+ 
+
+### It is probably a false positive.
+:::
+
+------------------------------------------------------------------------
+
+##  {.center background-color="IndianRed"}
+
+### Does that mean that `scipy.stats.pearsonr` is a bad test?
+
+\
+ 
+
+::: {.fragment .fade-down}
+### Is Covid RT-PCR a bad test?
+:::
+
+------------------------------------------------------------------------
+
+## No. {.center background-color="FireBrick"}
+
+::: fragment
+ 
+
+**PPV** isn't just about the test.
+
+PPV depends on **how the test is used**.
+:::
+
+------------------------------------------------------------------------
+
+## Recall
+
+When looking at Covid testing, **increasing our prior belief of Covid infection to just 5%** raised the PPV from 5% to 60%, **for the exact same test**. To make the test's results more meaningful, we used **knowledge** of prior exposure to Covid to **choose who to test**.
+
+```{python}
+fig, ax = plt.subplots( figsize = (12, 3.5) )
+plot_sweep( ax, covid_beliefs_sweep, ppvs_sweep, npvs_sweep,
+            annotations = [(covid_prevalence, 'k--', 'Random testing'),
+                           (covid_belief_sus, 'm--', 'Testing after confirmed exposure')],
+            xlabel = 'Prior belief of Covid' )
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+##  {.center background-color="PaleGreen"}
+
+### Even very weak information can dramatically improve the utility of a test!
+
+::: fragment
+ 
+
+So, how do you **improve the positive predictive value** of testing for significant correlations?
+:::
+
+::: {.fragment .fade-down}
+### Choose the right questions to ask.
+:::
+
+------------------------------------------------------------------------
+
+## A clairvoyant mouse? {auto-animate="true"}
+
+ 
+
+You look at your data, and you see that you **reject the null hypothesis** that *manipulated mice do not predict the future* with a $p$-value of 0.014.
+
+::: {.fragment .fade-down}
+ 
+
+#### What do you now know about whether the mouse is actually clairvoyant?
+:::
+
+::: {.fragment .fade-down}
+ 
+
+#### Why do you think this?
+:::
+
+## A clairvoyant mouse? {auto-animate="true"}
+
+ 
+
+You look at your data, and you see that you **reject the null hypothesis** that *manipulated mice do not predict the future* with a $p$-value of 0.014.
+
+ 
+
+### What do you do with this information?
+
+# Summary {background-color="bisque"}
+
+------------------------------------------------------------------------
+
+##  {.center background-color="purple"}
+
+::::: columns
+::: {.column width="35%"}
+### Tests do not tell us the truth.
+:::
+
+::: {.column width="65%"}
+\
+\
+ 
+
+![](figures/ppv/f13.png)
+
+#### We try to [**infer**]{.underline} the truth from tests.
+:::
+:::::
+
+##  {.center background-color="gold"}
+
+::::: columns
+::: {.column width="62%"}
+![](figures/ppv/f12.png)
+
+#### Because we live in a special part of the multiverse—the part where [we saw what we saw]{.underline}!
+:::
+
+::: {.column width="38%"}
+\
+ 
+
+### Tests update our beliefs about the world.
+:::
+:::::
+
+##  {.center background-color="SteelBlue"}
+
+::::: columns
+::: {.column width="40%"}
+\
+ 
+
+### The predictive value of a test depends on how the test is used.
+:::
+
+::: {.column width="60%"}
+![](figures/ppv/f11.png)
+
+#### In particular, it depends on our [prior knowledge]{.underline} of what we are testing for.
+:::
+:::::
+
+------------------------------------------------------------------------
+
+##  {background-color="PaleGreen"}
+
+### Statistical testing is not just a matter of selecting the "correct" test for a given question.
+
+::: fragment
+ 
+
+Being judicious about selecting the correct **questions** to apply the test **to** is a more powerful way to
+:::
+
+::: fragment
+-   strengthen the inferences gained through statistics;
+:::
+
+::: fragment
+-   improve the reproducibility of science; and
+:::
+
+::: fragment
+-   more responsibly use resources, like experimental animals, that we have an ethical obligation to minimize.
+:::
