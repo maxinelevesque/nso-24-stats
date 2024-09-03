@@ -1,0 +1,48 @@
+# Agenda
+
+## 9:00–9:50 ~ <span style="opacity:0.4;">*Air* 🜁</span> On unseen data
+:::: {.columns}
+::: {.column width="30%"}
+##### Slides
+##### PDF for Notes
+:::
+::: {.column width="70%"}
+* **population** versus **sample**
+* sampling **distribution** of the **mean**
+* **$p$-value** and **power**
+:::
+::::
+
+#### 9:50–10:00 ~ <span style="opacity:0.4;">Earth 🜃</span> *Break*
+
+## 10:00–10:50 ~ <span style="opacity:0.4;">*Water* 🜄</span> Gaining knowledge from tests
+:::: {.columns}
+::: {.column width="30%"}
+##### <a href="bayes.html" target="_blank">Slides</a>
+##### [PDF for Notes](notes/bayes.pdf)
+:::
+::: {.column width="70%"}
+* a **simulated** nightmare
+* what does a **positive test** tell you?
+* what does a test **do**?
+* **using** tests in science
+:::
+::::
+
+#### 10:50–11:00 ~ <span style="opacity:0.4;">Earth 🜃</span> *Break*
+
+## 11:00–12:00 ~ <span style="opacity:0.4;">Fire 🜂</span> Active inference
+:::: {.columns}
+::: {.column width="30%"}
+##### Slides
+##### PDF for Notes
+:::
+::: {.column width="70%"}
+* science as **erosion**
+* the power of **contingency**
+* sampling **distribution** of the **mean**
+* **$p$-value** and **power**
+:::
+::::
+
+#### 12:00 onward ~ <span style="opacity:0.4;">Æther 🜀</span> *Frolic*

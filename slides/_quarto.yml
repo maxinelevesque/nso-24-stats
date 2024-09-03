@@ -3,10 +3,23 @@ project:
   type: website
   output-dir: ../docs
 
-website:
-  title: "Stats"
+format:
+  html:
+    theme: quartz
 
-  navbar:
-    left:
+website:
+  title: "Oh God—<br/>not the math"
+  page-navigation: false
+
+  site-url: https://maxinelevesque.github.io/nso-24-stats/
+  repo-url: https://github.com/maxinelevesque/nso-24-stats
+  repo-subdir: docs
+  repo-actions: [source, issue]
+
+  sidebar:
+    style: floating
+    contents:
       - href: index.qmd
         text: Home
+      - href: agenda.qmd
+        text: Agenda

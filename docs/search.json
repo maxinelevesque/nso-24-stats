@@ -1,10 +1,43 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hello!",
+    "objectID": "agenda.html",
+    "href": "agenda.html",
+    "title": "Agenda",
     "section": "",
-    "text": "Hello!\nThis is a test."
+    "text": "population versus sample\nsampling distribution of the mean\n\\(p\\)-value and power\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na simulated nightmare\nwhat does a positive test tell you?\nwhat does a test do?\nusing tests in science\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscience as erosion\nthe power of contingency\nsampling distribution of the mean\n\\(p\\)-value and power",
+    "crumbs": [
+      "Agenda"
+    ]
+  },
+  {
+    "objectID": "agenda.html#air-on-unseen-data",
+    "href": "agenda.html#air-on-unseen-data",
+    "title": "Agenda",
+    "section": "",
+    "text": "population versus sample\nsampling distribution of the mean\n\\(p\\)-value and power",
+    "crumbs": [
+      "Agenda"
+    ]
+  },
+  {
+    "objectID": "agenda.html#water-gaining-knowledge-from-tests",
+    "href": "agenda.html#water-gaining-knowledge-from-tests",
+    "title": "Agenda",
+    "section": "",
+    "text": "a simulated nightmare\nwhat does a positive test tell you?\nwhat does a test do?\nusing tests in science",
+    "crumbs": [
+      "Agenda"
+    ]
+  },
+  {
+    "objectID": "agenda.html#fire-active-inference",
+    "href": "agenda.html#fire-active-inference",
+    "title": "Agenda",
+    "section": "",
+    "text": "science as erosion\nthe power of contingency\nsampling distribution of the mean\n\\(p\\)-value and power",
+    "crumbs": [
+      "Agenda"
+    ]
   },
   {
     "objectID": "bayes.html#a-clairvoyant-mouse-1",
@@ -95,14 +128,14 @@
     "href": "bayes.html#what-are-the-ppv-and-npv",
     "title": "Gaining knowledge from tests",
     "section": "What are the PPV and NPV?",
-    "text": "What are the PPV and NPV?\n\n \n\n\n# (See code for the slides online)\nppv_naive, npv_naive = predictive_value( has_covid, rtpcr_positive )\n\n# We can do math in our curly braces; here I convert the ratios into\n# percents. The `:0.2f` at the end tells Python that I want 2 digits\n# after the decimal point (not at all intuitive; blame the C people\n# who wrote the original `printf` function).\nprint( f'&gt; Naive PPV: **{ppv_naive * 100:0.2f}%**\\\\' )\nprint( f'&gt; Naive NPV: **{npv_naive * 100:0.2f}%**' )\n\n\n\nNaive PPV: 9.86%\nNaive NPV: 99.87%"
+    "text": "What are the PPV and NPV?\n\n \n\n\n# (See code for the slides online)\nppv_naive, npv_naive = predictive_value( has_covid, rtpcr_positive )\n\n# We can do math in our curly braces; here I convert the ratios into\n# percents. The `:0.2f` at the end tells Python that I want 2 digits\n# after the decimal point (not at all intuitive; blame the C people\n# who wrote the original `printf` function).\nprint( f'&gt; Naive PPV: **{ppv_naive * 100:0.2f}%**\\\\' )\nprint( f'&gt; Naive NPV: **{npv_naive * 100:0.2f}%**' )\n\n\n\nNaive PPV: 9.09%\nNaive NPV: 99.86%"
   },
   {
     "objectID": "bayes.html#do-you-think-this-will-scale-well",
     "href": "bayes.html#do-you-think-this-will-scale-well",
     "title": "Gaining knowledge from tests",
     "section": "Do you think this will scale well?",
-    "text": "Do you think this will scale well?\n\nSuppose quarantine lasts for 10 days (8 work days). What fraction of the workforce would have to be quarantining at any given moment from false positive tests alone?\n\n \n\n\n# 10 days is the policy, but a couple of those will be a weekend\nquarantine_workdays = 8\n# False positives *do not* have Covid *and* test positive\nquarantine_fp_per_day = np.sum( ~has_covid & rtpcr_positive )\nquarantine_fp_simultaneous = quarantine_fp_per_day * quarantine_workdays\nquarantine_fraction = quarantine_fp_simultaneous / n_employees\n\nprint( f'&gt; Fraction of workforce quarantined: **{quarantine_fraction * 100:0.2f}%**' )\n\n\n\nFraction of workforce quarantined: 24.37%"
+    "text": "Do you think this will scale well?\n\nSuppose quarantine lasts for 10 days (8 work days). What fraction of the workforce would have to be quarantining at any given moment from false positive tests alone?\n\n \n\n\n# 10 days is the policy, but a couple of those will be a weekend\nquarantine_workdays = 8\n# False positives *do not* have Covid *and* test positive\nquarantine_fp_per_day = np.sum( ~has_covid & rtpcr_positive )\nquarantine_fp_simultaneous = quarantine_fp_per_day * quarantine_workdays\nquarantine_fraction = quarantine_fp_simultaneous / n_employees\n\nprint( f'&gt; Fraction of workforce quarantined: **{quarantine_fraction * 100:0.2f}%**' )\n\n\n\nFraction of workforce quarantined: 24.33%"
   },
   {
     "objectID": "bayes.html#section-11",
@@ -362,5 +395,15 @@
     "title": "Gaining knowledge from tests",
     "section": "",
     "text": "Statistical testing is not just a matter of selecting the “correct” test for a given question.\n\n \nBeing judicious about selecting the correct questions to apply the test to is a more powerful way to\n\n\n\nstrengthen the inferences gained through statistics;\n\n\n\n\nimprove the reproducibility of science; and\n\n\n\n\nmore responsibly use resources, like experimental animals, that we have an ethical obligation to minimize."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to UCSF!",
+    "section": "",
+    "text": "Welcome to UCSF!\nLet’s take a walk through the magical world of\n\nｓｔａｔｉｓｔｉｃｓ\n\n❤️‍🔥 Maxine\n\n\n\nGoals\n\nBe entertaining.\nProvoke thoughts.\n\n\n\nExpectations\n\nAsk questions.\nFind the interesting thing.",
+    "crumbs": [
+      "Home"
+    ]
   }
 ]
