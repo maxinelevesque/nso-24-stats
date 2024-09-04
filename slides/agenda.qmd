@@ -3,8 +3,7 @@
 ## 9:30–10:20 ~ <span style="opacity:0.4;">*Air* 🜁</span> On unseen data
 :::: {.columns}
 ::: {.column width="30%"}
-##### Slides
-##### PDF for Notes
+##### <a href="https://github.com/maxcollard/nso-23-stats/blob/main/nso-23-stats-1-stats.ipynb" target="_blank">Notebook</a>
 :::
 ::: {.column width="70%"}
 * **population** versus **sample**
