@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://maxinelevesque.github.io/nso-24-stats/partsofdesign.html</loc>
-    <lastmod>2024-09-04T15:04:49.939Z</lastmod>
+    <loc>https://maxinelevesque.github.io/nso-24-stats/agenda.html</loc>
+    <lastmod>2024-09-04T16:19:17.307Z</lastmod>
   </url>
   <url>
-    <loc>https://maxinelevesque.github.io/nso-24-stats/howto.html</loc>
-    <lastmod>2024-09-03T18:47:29.701Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maxinelevesque.github.io/nso-24-stats/brian.html</loc>
-    <lastmod>2024-09-04T13:06:30.958Z</lastmod>
+    <loc>https://maxinelevesque.github.io/nso-24-stats/index.html</loc>
+    <lastmod>2024-09-03T22:05:03.788Z</lastmod>
   </url>
   <url>
     <loc>https://maxinelevesque.github.io/nso-24-stats/bayes.html</loc>
@@ -21,11 +17,7 @@
     <lastmod>2024-09-04T16:09:43.872Z</lastmod>
   </url>
   <url>
-    <loc>https://maxinelevesque.github.io/nso-24-stats/index.html</loc>
-    <lastmod>2024-09-03T22:05:03.788Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maxinelevesque.github.io/nso-24-stats/agenda.html</loc>
-    <lastmod>2024-09-03T22:57:31.018Z</lastmod>
+    <loc>https://maxinelevesque.github.io/nso-24-stats/howto.html</loc>
+    <lastmod>2024-09-03T18:47:29.701Z</lastmod>
   </url>
 </urlset>

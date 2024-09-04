@@ -34,8 +34,8 @@
 ## 11:30–12:20 ~ <span style="opacity:0.4;">Fire 🜂</span> Active inference
 :::: {.columns}
 ::: {.column width="30%"}
-##### Slides
-##### PDF for Notes
+##### <a href="action.html" target="_blank">Slides</a> \[<a href="https://github.com/maxinelevesque/nso-24-stats/blob/main/slides/action.qmd" target="_blank">Source</a>\]
+##### [PDF for Notes](notes/action.pdf)
 :::
 ::: {.column width="70%"}
 * science as **erosion**
