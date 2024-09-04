@@ -383,6 +383,7 @@ Our goal is to incrementally update what we *think* the best model is, in order 
 ## But...
 
  
+
 ::: {.fragment}
 After each experiment we run, we collect **new data**.
 :::
