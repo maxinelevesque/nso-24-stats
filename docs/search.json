@@ -1,63 +1,96 @@
 [
   {
-    "objectID": "agenda.html",
-    "href": "agenda.html",
-    "title": "Agenda",
+    "objectID": "partsofdesign.html",
+    "href": "partsofdesign.html",
+    "title": "Parts of an experimental design",
     "section": "",
-    "text": "population versus sample\nsampling distribution of the mean\n\\(p\\)-value and power\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na simulated nightmare\nwhat does a test result tell you?\nwhat do tests really do?\nusing tests in science\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscience as erosion\nwhat happens when you learn the wrong concepts early?\na better way forward",
+    "text": "These establish your prior belief about different models: \\[\n\\begin{eqnarray*}\n&\\mathrm{Pr}(\\textrm{model 1})\\\\\n&\\mathrm{Pr}(\\textrm{model 2})\\\\\n&\\mathrm{Pr}(\\textrm{model 3})\\\\\n&\\cdots\n\\end{eqnarray*}\n\\]\n\n\n\n\n\n\n\nWith specified measured outcomes that will be tested\nWith specified controls that isolate the models being interrogated\n\n\nThis establishes\n\nhow your data are generated\n\n\\[\n\\begin{eqnarray*}\n    & \\mathrm{Pr}(\\textrm{pattern of results 1}) \\\\\n    & \\mathrm{Pr}(\\textrm{pattern of results 2}) \\\\\n    & \\mathrm{Pr}(\\textrm{pattern of results 3}) \\\\\n    & \\cdots\n\\end{eqnarray*}\n\\]\n\n\n\n\n\n\n\n\nWith specified measured outcomes that will be tested\nWith specified controls that isolate the models being interrogated\n\n\nThis establishes\n\nthat your data are informative about your models\n\n\ni.e., that you expect your test results to yield a large Bayes factor, \\(K\\) \\[\n\\frac{\\mathrm{Pr}(\\textrm{model }1 \\mid \\textrm{data we see})}{\\mathrm{Pr}(\\textrm{model }2 \\mid \\textrm{data we see})} = K\\,\\frac{\\mathrm{Pr}(\\textrm{model }1)}{\\mathrm{Pr}(\\textrm{model }2)}\n\\]\n\n\n\n\n\n\n\n\nDo “positive” results support the hypothesized model?\n\nThe evidence your experiment will provide, and what it means\ni.e., the PPV\n\nDo “positive” results support other models?\n\nCould this effect be due to chance? (Under null model.)\nCould this effect be due to confounds? (Under “uninteresting” model.)\nCould this effect be irrelevant? (Under unlikely, very different model.)\nCould this effect mean something completely different? (Under unlikely, very different model.)\n\n\n\n\n\n\nDo “positive” results support other models?\n\nCould this effect be due to chance? (Under null model.)\nCould this effect be due to confounds? (Under “uninteresting” model.)\nCould this effect be irrelevant? (Under unlikely, very different model.)\nCould this effect mean something completely different? (Under unlikely, very different model.)\n\n\n\n\n\n\nDo “negative” results support the null model?\n\nAll experiments are noisy; does a “negative” result necessarily tell us that our hypothesis was wrong?\ni.e., what is the NPV?\n\nAre there other patterns of results that would sway us in a different direction?\n\n\n\n\nThese establish how the data you generate update our beliefs.\n\\[\n\\begin{eqnarray*}\n    &\\mathrm{Pr}(\\textrm{actually }+) & \\\\\n    & \\downarrow & \\\\\n    & \\mathrm{Pr}(\\textrm{actually }+ \\mid \\textrm{test }+) &\n\\end{eqnarray*}\n\\]"
+  },
+  {
+    "objectID": "partsofdesign.html#background-question-hypothesis",
+    "href": "partsofdesign.html#background-question-hypothesis",
+    "title": "Parts of an experimental design",
+    "section": "",
+    "text": "These establish your prior belief about different models: \\[\n\\begin{eqnarray*}\n&\\mathrm{Pr}(\\textrm{model 1})\\\\\n&\\mathrm{Pr}(\\textrm{model 2})\\\\\n&\\mathrm{Pr}(\\textrm{model 3})\\\\\n&\\cdots\n\\end{eqnarray*}\n\\]"
+  },
+  {
+    "objectID": "partsofdesign.html#experimental-approach",
+    "href": "partsofdesign.html#experimental-approach",
+    "title": "Parts of an experimental design",
+    "section": "",
+    "text": "With specified measured outcomes that will be tested\nWith specified controls that isolate the models being interrogated\n\n\nThis establishes\n\nhow your data are generated\n\n\\[\n\\begin{eqnarray*}\n    & \\mathrm{Pr}(\\textrm{pattern of results 1}) \\\\\n    & \\mathrm{Pr}(\\textrm{pattern of results 2}) \\\\\n    & \\mathrm{Pr}(\\textrm{pattern of results 3}) \\\\\n    & \\cdots\n\\end{eqnarray*}\n\\]"
+  },
+  {
+    "objectID": "partsofdesign.html#experimental-approach-1",
+    "href": "partsofdesign.html#experimental-approach-1",
+    "title": "Parts of an experimental design",
+    "section": "",
+    "text": "With specified measured outcomes that will be tested\nWith specified controls that isolate the models being interrogated\n\n\nThis establishes\n\nthat your data are informative about your models\n\n\ni.e., that you expect your test results to yield a large Bayes factor, \\(K\\) \\[\n\\frac{\\mathrm{Pr}(\\textrm{model }1 \\mid \\textrm{data we see})}{\\mathrm{Pr}(\\textrm{model }2 \\mid \\textrm{data we see})} = K\\,\\frac{\\mathrm{Pr}(\\textrm{model }1)}{\\mathrm{Pr}(\\textrm{model }2)}\n\\]"
+  },
+  {
+    "objectID": "partsofdesign.html#patterns-of-results-and-interpretations",
+    "href": "partsofdesign.html#patterns-of-results-and-interpretations",
+    "title": "Parts of an experimental design",
+    "section": "",
+    "text": "Do “positive” results support the hypothesized model?\n\nThe evidence your experiment will provide, and what it means\ni.e., the PPV\n\nDo “positive” results support other models?\n\nCould this effect be due to chance? (Under null model.)\nCould this effect be due to confounds? (Under “uninteresting” model.)\nCould this effect be irrelevant? (Under unlikely, very different model.)\nCould this effect mean something completely different? (Under unlikely, very different model.)"
+  },
+  {
+    "objectID": "partsofdesign.html#patterns-of-results-and-interpretations-1",
+    "href": "partsofdesign.html#patterns-of-results-and-interpretations-1",
+    "title": "Parts of an experimental design",
+    "section": "",
+    "text": "Do “positive” results support other models?\n\nCould this effect be due to chance? (Under null model.)\nCould this effect be due to confounds? (Under “uninteresting” model.)\nCould this effect be irrelevant? (Under unlikely, very different model.)\nCould this effect mean something completely different? (Under unlikely, very different model.)"
+  },
+  {
+    "objectID": "partsofdesign.html#patterns-of-results-and-interpretations-2",
+    "href": "partsofdesign.html#patterns-of-results-and-interpretations-2",
+    "title": "Parts of an experimental design",
+    "section": "",
+    "text": "Do “negative” results support the null model?\n\nAll experiments are noisy; does a “negative” result necessarily tell us that our hypothesis was wrong?\ni.e., what is the NPV?\n\nAre there other patterns of results that would sway us in a different direction?"
+  },
+  {
+    "objectID": "partsofdesign.html#patterns-of-results-and-interpretations-3",
+    "href": "partsofdesign.html#patterns-of-results-and-interpretations-3",
+    "title": "Parts of an experimental design",
+    "section": "",
+    "text": "These establish how the data you generate update our beliefs.\n\\[\n\\begin{eqnarray*}\n    &\\mathrm{Pr}(\\textrm{actually }+) & \\\\\n    & \\downarrow & \\\\\n    & \\mathrm{Pr}(\\textrm{actually }+ \\mid \\textrm{test }+) &\n\\end{eqnarray*}\n\\]"
+  },
+  {
+    "objectID": "howto.html",
+    "href": "howto.html",
+    "title": "Protips",
+    "section": "",
+    "text": "This site was made with Quarto and hosted on GitHub Pages. You should try them both for your projects—they’re rad!\n\n\nThe search bar can find anything on this site or in any of the slide presentations; try it by pressing S!\n\n\n\nYou can find the code for this site and all slide decks on GitHub.\nAll code blocks for figures and demonstrations are actually executed each time the entire site and all the slide decks are rendered to HTML; this means that each time you view the site yourself from your own machine, you’ll get a new random result for everything!\n\n\n\n\nSlides are revendered with Reveal.js at build-time.\nWhen you’re in a slide presentation:\n\nPress SPACE to advance to the next slide; or, use the left and right arrow keys to go back and forth between slides. On mobile, swipe left or right.\nPress ESC or O to show the grid overview; slides within a section advance going down, and sections are arranged left-to-right.\nPress F to enter fullscreen mode.",
     "crumbs": [
-      "Agenda"
+      "How-to"
     ]
   },
   {
-    "objectID": "agenda.html#air-on-unseen-data",
-    "href": "agenda.html#air-on-unseen-data",
-    "title": "Agenda",
+    "objectID": "howto.html#this-site",
+    "href": "howto.html#this-site",
+    "title": "Protips",
     "section": "",
-    "text": "population versus sample\nsampling distribution of the mean\n\\(p\\)-value and power",
+    "text": "This site was made with Quarto and hosted on GitHub Pages. You should try them both for your projects—they’re rad!\n\n\nThe search bar can find anything on this site or in any of the slide presentations; try it by pressing S!\n\n\n\nYou can find the code for this site and all slide decks on GitHub.\nAll code blocks for figures and demonstrations are actually executed each time the entire site and all the slide decks are rendered to HTML; this means that each time you view the site yourself from your own machine, you’ll get a new random result for everything!",
     "crumbs": [
-      "Agenda"
+      "How-to"
     ]
   },
   {
-    "objectID": "agenda.html#water-gaining-knowledge-from-tests",
-    "href": "agenda.html#water-gaining-knowledge-from-tests",
-    "title": "Agenda",
+    "objectID": "howto.html#slides",
+    "href": "howto.html#slides",
+    "title": "Protips",
     "section": "",
-    "text": "a simulated nightmare\nwhat does a test result tell you?\nwhat do tests really do?\nusing tests in science",
+    "text": "Slides are revendered with Reveal.js at build-time.\nWhen you’re in a slide presentation:\n\nPress SPACE to advance to the next slide; or, use the left and right arrow keys to go back and forth between slides. On mobile, swipe left or right.\nPress ESC or O to show the grid overview; slides within a section advance going down, and sections are arranged left-to-right.\nPress F to enter fullscreen mode.",
     "crumbs": [
-      "Agenda"
+      "How-to"
     ]
   },
   {
-    "objectID": "agenda.html#fire-active-inference",
-    "href": "agenda.html#fire-active-inference",
-    "title": "Agenda",
+    "objectID": "brian.html",
+    "href": "brian.html",
+    "title": "Oh God—<br/>not the math<br/>",
     "section": "",
-    "text": "science as erosion\nwhat happens when you learn the wrong concepts early?\na better way forward",
-    "crumbs": [
-      "Agenda"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to UCSF!",
-    "section": "",
-    "text": "Let’s take a walk through the magical world of\n\nｓｔａｔｉｓｔｉｃｓ.\n📈 🧮 📊\n\n❤️‍🔥 Maxine, G5\nIn voluntary free association with the Poskanzer and Abbasi Labs\nmaxine.collard@ucsf.edu\n\n\n\n\n\n\n\nBe entertaining.\nProvoke thoughts.\n\n\n\n\n\n\nAsk questions.\nFind the interesting thing.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#for-today",
-    "href": "index.html#for-today",
-    "title": "Welcome to UCSF!",
-    "section": "",
-    "text": "Be entertaining.\nProvoke thoughts.\n\n\n\n\n\n\nAsk questions.\nFind the interesting thing.",
-    "crumbs": [
-      "Home"
-    ]
+    "text": "Now what psychedelics do is, because of their localization to the apical dendrites, they basically cause asynchronous firing … so that there is noise injected that’s into the very neurons— into the very parts of the neurons—that are responsible for giving us our perspective on reality.\nAnd so the psychedelic experience—I think it’s probably just noise, that’s it. And the brain is very good at making meaning out of nothing. In fact, one can speculate that the reason we have a brain is to predict things that don’t exist. And so it just makes up a story about what’s going on.\nAnd for reasons that are not entirely clear to me, this story that’s made up when people take psychedelics is very meaningful to them.\nIt’s instructive to go back and look at Roland Griffiths’ studies on depressed individuals, because he interviewed these people that participated in these psilocybin trials a year later and asked them to rate the top three experiences they had ever had in their life, and uniformly they rated the psychedelic experience as one of the top three—right up there with the birth of their child, getting married, getting divorced, et cetera.\nFor reasons that aren’t entirely clear, activating these receptors makes you think everything is significant."
   },
   {
     "objectID": "bayes.html#a-clairvoyant-mouse-1",
@@ -148,21 +181,21 @@
     "href": "bayes.html#what-are-the-ppv-and-npv",
     "title": "Gaining knowledge from tests",
     "section": "What are the PPV and NPV?",
-    "text": "What are the PPV and NPV?\n\n \n\n\n# (See code for the slides online)\nppv_naive, npv_naive = predictive_value( has_covid, rtpcr_positive )\n\n# We can do math in our curly braces; here I convert the ratios into\n# percents. The `:0.2f` at the end tells Python that I want 2 digits\n# after the decimal point (not at all intuitive; blame the C people\n# who wrote the original `printf` function).\nprint( f'&gt; Naive PPV: **{ppv_naive * 100:0.2f}%**\\\\' )\nprint( f'&gt; Naive NPV: **{npv_naive * 100:0.2f}%**' )\n\n\n\nNaive PPV: 9.65%\nNaive NPV: 99.87%"
+    "text": "What are the PPV and NPV?\n\n \n\n\n# (See code for the slides online)\nppv_naive, npv_naive = predictive_value( has_covid, rtpcr_positive )\n\n# We can do math in our curly braces; here I convert the ratios into\n# percents. The `:0.2f` at the end tells Python that I want 2 digits\n# after the decimal point (not at all intuitive; blame the C people\n# who wrote the original `printf` function).\nprint( f'&gt; Naive PPV: **{ppv_naive * 100:0.2f}%**\\\\' )\nprint( f'&gt; Naive NPV: **{npv_naive * 100:0.2f}%**' )\n\n\n\nNaive PPV: 9.59%\nNaive NPV: 99.88%"
   },
   {
     "objectID": "bayes.html#do-you-think-this-will-scale-well",
     "href": "bayes.html#do-you-think-this-will-scale-well",
     "title": "Gaining knowledge from tests",
     "section": "Do you think this will scale well?",
-    "text": "Do you think this will scale well?\n\nSuppose quarantine lasts for 10 days (8 work days). What fraction of the workforce would have to be quarantining at any given moment from false positive tests alone?\n\n \n\n\n# 10 days is the policy, but a couple of those will be a weekend\nquarantine_workdays = 8\n# False positives *do not* have Covid *and* test positive\nquarantine_fp_per_day = np.sum( ~has_covid & rtpcr_positive )\nquarantine_fp_simultaneous = quarantine_fp_per_day * quarantine_workdays\nquarantine_fraction = quarantine_fp_simultaneous / n_employees\n\nprint( f'&gt; Fraction of workforce quarantined: **{quarantine_fraction * 100:0.2f}%**' )\n\n\n\nFraction of workforce quarantined: 24.03%"
+    "text": "Do you think this will scale well?\n\nSuppose quarantine lasts for 10 days (8 work days). What fraction of the workforce would have to be quarantining at any given moment from false positive tests alone?\n\n \n\n\n# 10 days is the policy, but a couple of those will be a weekend\nquarantine_workdays = 8\n# False positives *do not* have Covid *and* test positive\nquarantine_fp_per_day = np.sum( ~has_covid & rtpcr_positive )\nquarantine_fp_simultaneous = quarantine_fp_per_day * quarantine_workdays\nquarantine_fraction = quarantine_fp_simultaneous / n_employees\n\nprint( f'&gt; Fraction of workforce quarantined: **{quarantine_fraction * 100:0.2f}%**' )\n\n\n\nFraction of workforce quarantined: 24.20%"
   },
   {
     "objectID": "bayes.html#section-11",
     "href": "bayes.html#section-11",
     "title": "Gaining knowledge from tests",
     "section": "",
-    "text": "But, n.b.! This test also has an extremely high accuracy—that is, the probability of the test being correct:\n\n\n# == operates element by element on arrays\n# `a == b` is an array where each element is `True` if the\n# corresponding elements of `a` and `b` are equal\naccuracy_naive = np.sum( has_covid == rtpcr_positive ) / len( has_covid )\n\nprint( f'&gt; Naive accuracy: **{accuracy_naive * 100:0.2f}%**' )\n\n\n\nNaive accuracy: 96.87%\n\n\n\n\n\nThe accuracy of the test is hiding the fact that we’re actually doing quite a terrible job with the positive predictive value—the much more actionable piece of information—because the prevalence of Covid cases is so low!"
+    "text": "But, n.b.! This test also has an extremely high accuracy—that is, the probability of the test being correct:\n\n\n# == operates element by element on arrays\n# `a == b` is an array where each element is `True` if the\n# corresponding elements of `a` and `b` are equal\naccuracy_naive = np.sum( has_covid == rtpcr_positive ) / len( has_covid )\n\nprint( f'&gt; Naive accuracy: **{accuracy_naive * 100:0.2f}%**' )\n\n\n\nNaive accuracy: 96.86%\n\n\n\n\n\nThe accuracy of the test is hiding the fact that we’re actually doing quite a terrible job with the positive predictive value—the much more actionable piece of information—because the prevalence of Covid cases is so low!"
   },
   {
     "objectID": "bayes.html#whats-going-wrong",
@@ -417,33 +450,539 @@
     "text": "Statistical testing is not just a matter of selecting the “correct” test for a given question.\n\n \nBeing judicious about selecting the correct questions to apply the test to is a more powerful way to\n\n\n\nstrengthen the inferences gained through statistics;\n\n\n\n\nimprove the reproducibility of science; and\n\n\n\n\nmore responsibly use resources, like experimental animals, that we have an ethical obligation to minimize."
   },
   {
-    "objectID": "howto.html",
-    "href": "howto.html",
-    "title": "Protips",
+    "objectID": "action.html#learning-about-the-world-1",
+    "href": "action.html#learning-about-the-world-1",
+    "title": "Active inference",
+    "section": "Learning about the world",
+    "text": "Learning about the world\n \nThe “ideal” science centers on the experimental cycle:\n\n\nStart with what we currently know about the world.\nObserve new data.\nUse this data to make inferences that update how we view the world."
+  },
+  {
+    "objectID": "action.html#recall",
+    "href": "action.html#recall",
+    "title": "Active inference",
+    "section": "Recall",
+    "text": "Recall\nThe amount of information provided by a test result is called the result’s Bayes factor, \\(K\\). While the PPV—which is the posterior probability of disease given a positive test—changes depending on the prior, the following ratios are always proportional:\n\\[ \\frac{\\mathrm{Pr}(\\textrm{actually }+ \\mid \\textrm{test }+)}{\\mathrm{Pr}(\\textrm{actually }- \\mid \\textrm{test }+)} = K\\,\\frac{\\mathrm{Pr}(\\textrm{actually }+)}{\\mathrm{Pr}(\\textrm{actually }-)}\\]\nSo, the Bayes factor tells us how much receiving a positive test result changes our prior belief. Test results with larger Bayes factors change our beliefs more."
+  },
+  {
+    "objectID": "action.html#in-experimental-design",
+    "href": "action.html#in-experimental-design",
+    "title": "Active inference",
+    "section": "In experimental design",
+    "text": "In experimental design\nThe posterior probability of a model given data changes depending on the prior.\nHowever, the following ratios are always proportional:\n\\[\n\\frac{\\mathrm{Pr}(\\textrm{model }1 \\mid \\textrm{data we see})}{\\mathrm{Pr}(\\textrm{model }2 \\mid \\textrm{data we see})} = K\\,\\frac{\\mathrm{Pr}(\\textrm{model }1)}{\\mathrm{Pr}(\\textrm{model }2)}\n\\]\nSo, the Bayes factor \\(K\\) tells us how much receiving a positive test result changes our prior belief. Test results with larger Bayes factors change our beliefs more."
+  },
+  {
+    "objectID": "action.html#principles-of-experimental-design",
+    "href": "action.html#principles-of-experimental-design",
+    "title": "Active inference",
+    "section": "Principles of experimental design",
+    "text": "Principles of experimental design\n \n\nAll we can reasonably do is compare models.\n\n\n\n“All models are wrong; some are useful.”—James Box\n\n\n\nChoose comparisons that we think will tease apart the models (have a large expected Bayes factor)\n\n \n\n\nSomebody has to tell a Congressional panel why taxpayer money pays for what we do."
+  },
+  {
+    "objectID": "action.html#whats-in-an-experimental-design",
+    "href": "action.html#whats-in-an-experimental-design",
+    "title": "Active inference",
+    "section": "What’s in an experimental design",
+    "text": "What’s in an experimental design\nWhen we conduct experiments, we collect data that updates our beliefs about the world:\n\\[\n\\begin{eqnarray*}\n& \\mathrm{Pr}(\\textrm{model}) & \\\\\n& \\downarrow & \\\\\n& \\mathrm{Pr}(\\textrm{model} \\mid \\textrm{data})\n\\end{eqnarray*}\n\\]\n\nWhen you design an experiment, you specify:\n\n\n\nwhat data you will collect, and\nhow that will update your beliefs about your model with any outcome."
+  },
+  {
+    "objectID": "action.html#science",
+    "href": "action.html#science",
+    "title": "Active inference",
+    "section": "Science:",
+    "text": "Science:\n\n\n \n\\[\n\\begin{eqnarray*}\n    & \\mathrm{Pr}(\\textrm{Model }A) & \\textrm{Form Prior} \\\\\n\\end{eqnarray*}\n\\]"
+  },
+  {
+    "objectID": "action.html#science-1",
+    "href": "action.html#science-1",
+    "title": "Active inference",
+    "section": "Science:",
+    "text": "Science:\n\n\n \n\\[\n\\begin{eqnarray*}\n    & \\mathrm{Pr}(\\textrm{Model }A) & \\textrm{Form Prior} \\\\\n    & \\downarrow & \\textrm{Get Data} \\\\\n\\end{eqnarray*}\n\\]"
+  },
+  {
+    "objectID": "action.html#science-2",
+    "href": "action.html#science-2",
+    "title": "Active inference",
+    "section": "Science:",
+    "text": "Science:\n\n\n \n\\[\n\\begin{eqnarray*}\n    & \\mathrm{Pr}(\\textrm{Model }A) & \\textrm{Form Prior} \\\\\n    & \\downarrow & \\textrm{Get Data} \\\\\n    & \\mathrm{Pr}(\\textrm{Model  }A \\mid \\textrm{Data}) & \\textrm{Update Belief}\n\\end{eqnarray*}\n\\]"
+  },
+  {
+    "objectID": "action.html#one-might-wonder",
+    "href": "action.html#one-might-wonder",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n\n\nWhat PPV makes a diagnostic test good? What NPV?\nIs it the same for scientific tests?\nWhere do tests sit in a larger societal context?\n\ni.e., What are we actually doing with the knowledge we get from tests?\n\nAre false positives and false negatives equally bad?\n\nSince there’s a tradeoff between PPV and NPV, which should we prioritize making as large as possible?"
+  },
+  {
+    "objectID": "action.html#one-might-wonder-1",
+    "href": "action.html#one-might-wonder-1",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n\n\nHow do we know whether our belief about the prevalence of Covid is correct?\nHow do we know how accurate our prior belief about a statement in science is?\n\n\n\n\nSince, as we established before, these are crucial for determining how useful any test is."
+  },
+  {
+    "objectID": "action.html#section-1",
+    "href": "action.html#section-1",
+    "title": "Active inference",
     "section": "",
-    "text": "This site was made with Quarto and hosted on GitHub Pages. You should try them both for your projects—they’re rad!\n\n\nThe search bar can find anything on this site or in any of the slide presentations; try it by pressing S!\n\n\n\nYou can find the code for this site and all slide decks on GitHub.\nAll code blocks for figures and demonstrations are actually executed each time the entire site and all the slide decks are rendered to HTML; this means that each time you view the site yourself from your own machine, you’ll get a new random result for everything!\n\n\n\n\nSlides are revendered with Reveal.js at build-time.\nWhen you’re in a slide presentation:\n\nPress SPACE to advance to the next slide; or, use the left and right arrow keys to go back and forth between slides. On mobile, swipe left or right.\nPress ESC or O to show the grid overview; slides within a section advance going down, and sections are arranged left-to-right.\nPress F to enter fullscreen mode.",
+    "text": "The unraveling begins…"
+  },
+  {
+    "objectID": "action.html#science-as-process-1",
+    "href": "action.html#science-as-process-1",
+    "title": "Active inference",
+    "section": "Science as process",
+    "text": "Science as process\n \nDo we really just do one experiment?\n \n\\[\n\\begin{eqnarray*}\n    & \\mathrm{Pr}(\\textrm{Statement}) & \\\\\n    & \\downarrow & \\textrm{Get Data} \\\\\n    & \\mathrm{Pr}(\\textrm{Statement} \\mid \\textrm{Data}) &\n\\end{eqnarray*}\n\\]"
+  },
+  {
+    "objectID": "action.html#one-might-wonder-2",
+    "href": "action.html#one-might-wonder-2",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n\n\nWhat does this process, \\[\n\\mathrm{Pr}(\\textrm{Statement} \\mid \\textrm{Data 1}, \\cdots, \\textrm{Data }k)\n\\] converge to as we do more and more experiments, \\[\nk \\to \\infty\n\\]\nDoes it converge at all?\nWhat does this convergence depend on?"
+  },
+  {
+    "objectID": "action.html#one-might-wonder-3",
+    "href": "action.html#one-might-wonder-3",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n\n \nWait, how do we choose the next test to run each time?\n \nThis is a big question, so let’s think about it in the context of a few specific examples."
+  },
+  {
+    "objectID": "action.html#one-might-wonder-4",
+    "href": "action.html#one-might-wonder-4",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n\nLet’s say we update our belief with successive tests, as above, but at each step, we choose the next test such that it will maximally increase our updated probability, \\(\\mathrm{Pr}(\\textrm{statement} \\mid \\textrm{tests})\\).\nThat is, we choose the experiment that we think will give us the most evidence supporting our model.\n \n\n\nWhat does this process converge to?"
+  },
+  {
+    "objectID": "action.html#one-might-wonder-5",
+    "href": "action.html#one-might-wonder-5",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n \nLet’s say we update our belief with successive tests, as above, but at each step, we choose the next test completely at random.\n \n\n\nWhat does this process converge to?"
+  },
+  {
+    "objectID": "action.html#one-might-wonder-6",
+    "href": "action.html#one-might-wonder-6",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n \nLet’s say we update our belief with successive tests, but we are really wrong about our initial belief.\n\n\nWhat happens to the limit of \\(\\mathrm{Pr}(\\textrm{Statement} \\mid \\textrm{Data 1}, \\cdots, \\textrm{Data }k)\\)?\nWill our belief always end up in the same place at the end of the process, regardless of what we initially think?\nWhat is the best initial belief to have?"
+  },
+  {
+    "objectID": "action.html#comparing-models-1",
+    "href": "action.html#comparing-models-1",
+    "title": "Active inference",
+    "section": "Comparing models",
+    "text": "Comparing models\nLet’s say we update our belief with successive tests, but this time, we look at multiple candidate models; i.e., we obtain\n\\[\n\\begin{eqnarray*}\n    &\\mathrm{Pr}(\\textrm{model 1} \\mid \\textrm{test 1},\\cdots,\\textrm{test }n) \\\\\n    &\\mathrm{Pr}(\\textrm{model 2} \\mid \\textrm{test 1},\\cdots,\\textrm{test }n) \\\\\n    &\\cdots \\\\\n    &\\mathrm{Pr}(\\textrm{model }k \\mid \\textrm{test 1},\\cdots,\\textrm{test }n)\n\\end{eqnarray*}\n\\]\nafter a sequence of \\(n\\) tests."
+  },
+  {
+    "objectID": "action.html#one-might-wonder-7",
+    "href": "action.html#one-might-wonder-7",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n\n\n\n \nDoes the presence of multiple candidate models change the way we should choose the next test?"
+  },
+  {
+    "objectID": "action.html#one-might-wonder-8",
+    "href": "action.html#one-might-wonder-8",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\nIn the above scheme with multiple candidate models, let’s say that the truth is not among the models that you considered.\n\n\n(After all, do we have so much hubris as scientists to think that universal truth is guaranteed to be comprehensible by human models?)\n\n\n\n\nWhat does this process converge to?\nHow do you interpret the result you end up at after iterating the experimental cycle a bunch?"
+  },
+  {
+    "objectID": "action.html#one-might-wonder-9",
+    "href": "action.html#one-might-wonder-9",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\nIn the above scheme with multiple candidate models, let’s say that the truth is not among the models that you considered.\n\n(After all, do we have so much hubris as scientists to think that universal truth is guaranteed to be comprehensible by human models?)\n\n\nHow would you even know whether you included the truth as a candidate model you were considering in your prior?"
+  },
+  {
+    "objectID": "action.html#history-dependence-1",
+    "href": "action.html#history-dependence-1",
+    "title": "Active inference",
+    "section": "History dependence",
+    "text": "History dependence\nThe process of updating our beliefs about our model is kind of like an optimization problem.\nImagine that there is some “landscape” painted across the space of all models we’re considering, with the “height” at each point (each model) corresponding to the “badness” of that model.\n\nFor example, models are worse (higher up) if they have a bigger prediction error, lower \\(R^2\\), etc."
+  },
+  {
+    "objectID": "action.html#history-dependence-2",
+    "href": "action.html#history-dependence-2",
+    "title": "Active inference",
+    "section": "History dependence",
+    "text": "History dependence\nThe process of updating our beliefs about our model is kind of like an optimization problem.\nImagine that there is some “landscape” painted across the space of all models we’re considering, with the “height” at each point (each model) corresponding to the “badness” of that model.\nOur goal is to incrementally update what we think the best model is, in order to someday find the lowest point in the entire landscape—the actual best model—which should be the truth."
+  },
+  {
+    "objectID": "action.html#but",
+    "href": "action.html#but",
+    "title": "Active inference",
+    "section": "But…",
+    "text": "But…\n  ::: {.fragment} After each experiment we run, we collect new data. :::\n\nThis new data changes how we measure the badness or goodness of a model’s fit.\n\n\n\nAfter all, the model should fit the new data also!\n\n\n \n\nThis alters the landscape of our optimization problem."
+  },
+  {
+    "objectID": "action.html#one-might-wonder-10",
+    "href": "action.html#one-might-wonder-10",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n\n\nWhat happens if we start off very wrong about our prediction of what model is best?\nDoes this optimization process, iteratively deforming the landscape, converge to the truth?\nIf not, how can we ever “recover”?"
+  },
+  {
+    "objectID": "action.html#section-6",
+    "href": "action.html#section-6",
+    "title": "Active inference",
+    "section": "",
+    "text": "How does the optimum we converge to depend on how we choose the next data to collect?"
+  },
+  {
+    "objectID": "action.html#one-might-wonder-11",
+    "href": "action.html#one-might-wonder-11",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n\n\nIf we had started off the entire process with a vastly different initial prediction, would yet another minimum have emerged?\n\nIs that the truth?\nWhich one?\n\nHow does the optimum we converge to depend on our initial beliefs?"
+  },
+  {
+    "objectID": "action.html#one-might-wonder-12",
+    "href": "action.html#one-might-wonder-12",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n\n \n\n\nIs there a criterion for optimality that is independent of our starting position?\nCan we design a scheme for conducting tests that makes us more likely to converge to that universal model, regardless of our initial beliefs?"
+  },
+  {
+    "objectID": "action.html#one-might-wonder-13",
+    "href": "action.html#one-might-wonder-13",
+    "title": "Active inference",
+    "section": "One might wonder…",
+    "text": "One might wonder…\n \n\n\nIs any of this even a problem?\nAs we try to design a scientific process:\n\nShould we minimize the effect of this history dependence, the “erosion” of the landscape?\nOr is this actually an important feature of how science behaves?"
+  },
+  {
+    "objectID": "action.html#section-7",
+    "href": "action.html#section-7",
+    "title": "Active inference",
+    "section": "",
+    "text": "Is the body of knowledge we have converged to through the scientific process a statement about the world we live in?\n \n\n\nOr is it just a statement about the process itself?"
+  },
+  {
+    "objectID": "action.html#section-8",
+    "href": "action.html#section-8",
+    "title": "Active inference",
+    "section": "",
+    "text": "What would scientific “truth” look like today if we started with different structures for how we build new knowledge?\n \n\n\nWhat amazing ideas have we missed out on?\n\n \n\n\nWho benefits from the rules being as they are?"
+  },
+  {
+    "objectID": "action.html#the-year-2000",
+    "href": "action.html#the-year-2000",
+    "title": "Active inference",
+    "section": "The year 2000",
+    "text": "The year 2000\n\n\n\n\n\nExpectation\n\n\n\n\n\n\nReality"
+  },
+  {
+    "objectID": "action.html#the-year-2000-1",
+    "href": "action.html#the-year-2000-1",
+    "title": "Active inference",
+    "section": "The year 2000",
+    "text": "The year 2000\n\n\n\n\n\n“Get off the phone, I need to use the Internet”\n\n\n\n\n\n\n(The Internet)"
+  },
+  {
+    "objectID": "action.html#the-year-2000-2",
+    "href": "action.html#the-year-2000-2",
+    "title": "Active inference",
+    "section": "The year 2000",
+    "text": "The year 2000\n\n\n\n\n\n\n\nMaxwell Jordan Collard"
+  },
+  {
+    "objectID": "action.html#the-year-2000-3",
+    "href": "action.html#the-year-2000-3",
+    "title": "Active inference",
+    "section": "The year 2000",
+    "text": "The year 2000\n\n\n\n\n\n \n\nWhen I first went to see a therapist for depression."
+  },
+  {
+    "objectID": "action.html#labels-i-have-been-given",
+    "href": "action.html#labels-i-have-been-given",
+    "title": "Active inference",
+    "section": "Labels I have been given",
+    "text": "Labels I have been given\n\n\n\n\nMajor depressive disorder\nObsessive-compulsive disorder\nOppositional defiant disorder\nPost-traumatic stress disorder\nBorderline personality disorder\nBipolar II disorder\nComplex post-traumatic stress disorder\nAutism spectrum disorder\nAttention-deficit/hyperactivity disorder"
+  },
+  {
+    "objectID": "action.html#labels-i-would-endorse",
+    "href": "action.html#labels-i-would-endorse",
+    "title": "Active inference",
+    "section": "Labels I would endorse",
+    "text": "Labels I would endorse\n\n\n\nMajor depressive disorder\nOppositional defiant disorder\nPost-traumatic stress disorder\nBipolar II disorder\nBorderline personality disorder\n\n\nTwo buckets:\n \n“Neuro-spicy”\n\nAutism spectrum disorder\nAttention-deficit/hyperactivity disorder\nObsessive-compulsive disorder\n\n \n“Stuff happened”\n\nComplex post-traumatic stress disorder"
+  },
+  {
+    "objectID": "action.html#section-9",
+    "href": "action.html#section-9",
+    "title": "Active inference",
+    "section": "",
+    "text": "Some medications I tried …\n\n\n\nfluoxetine\nsertraline\nmirtazapine\nalprazolam\nclonazepam\n\n\n\nlurasidone\naripiprazole, brexpiprazole\nolanzapine\nquetiapine\nrisperidone\ntrazadone\n\n\n\nlithium carbonate\nlamotrigine\nvalproic acid\noxcarbazepine\nescitalopram, buproprion"
+  },
+  {
+    "objectID": "action.html#section-10",
+    "href": "action.html#section-10",
+    "title": "Active inference",
+    "section": "",
+    "text": "Some medications I tried … And their side effects\n\n\n\nfluoxetine\n\ndiarrhea; sexual dysfunction\n\nsertraline\n\nprecipitated hypomanic episode after one half-pill\n\nmirtazapine\n\nsomnolence; severe weight gain\n\nalprazolam\n\nvivid, horrifying nightmares\n\nclonazepam\n\ndepression; worsening anxiety\n\n\n\n\nlurasidone\n\nakathisia; drug-induced Parkinsonism\n\naripiprazole, brexpiprazole\n\nmood swings; severe drug-induced Parkinsonism\n\nolanzapine\n\nsomnolence; impaired cognition; weight gain; akathisia\n\nquetiapine\n\nsomnolence; impaired cognition; akathisia\n\nrisperidone\n\nweight gain\n\ntrazadone\n\nsomnolence\n\n\n\n\nlithium carbonate\n\ndiarrhea; incontinence; urinating 6+/day; myoclonus; drug-induced Parkinsonism\n\nlamotrigine\n\nfull-body skin rash after one half-pill\n\nvalproic acid\n\nepisodes of frank derealization-depersonalization\n\noxcarbazepine\n\nimpaired cognition\n\nescitalopram, buproprion\n\nsevere mood swings"
+  },
+  {
+    "objectID": "action.html#and-it-still-didnt-help",
+    "href": "action.html#and-it-still-didnt-help",
+    "title": "Active inference",
+    "section": "And it still didn’t help",
+    "text": "And it still didn’t help\nConstant battle against dissociative spirals\n\n\nSmall trigger, sometimes subliminal (not consciously aware of it at the start)"
+  },
+  {
+    "objectID": "action.html#and-it-still-didnt-help-1",
+    "href": "action.html#and-it-still-didnt-help-1",
+    "title": "Active inference",
+    "section": "And it still didn’t help",
+    "text": "And it still didn’t help\nConstant battle against dissociative spirals\n\n\nProgressive worsening of symptoms over ensuing minutes to hours\n\nAnxiety, sympathetic activation\nReach out to social network for help\nLack of response \\(\\rightarrow\\) Worsening agitation\nDepersonalization, derealization\n…"
+  },
+  {
+    "objectID": "action.html#and-it-still-didnt-help-2",
+    "href": "action.html#and-it-still-didnt-help-2",
+    "title": "Active inference",
+    "section": "And it still didn’t help",
+    "text": "And it still didn’t help\nConstant battle against dissociative spirals\n\n\nEventually spontaneously ends within seconds to a minute\nRefractory period of fatigue afterward for several hours"
+  },
+  {
+    "objectID": "action.html#and-it-still-didnt-help-3",
+    "href": "action.html#and-it-still-didnt-help-3",
+    "title": "Active inference",
+    "section": "And it still didn’t help",
+    "text": "And it still didn’t help\n\n\n\n\n\nCrisis text-message days per week (grey), 4-week rolling average (black), and hospital days per week (orange)\n\n\n\nIn December 2021, after months of struggles, I started having dissociative spirals every day. I couldn’t function."
+  },
+  {
+    "objectID": "action.html#and-it-still-didnt-help-4",
+    "href": "action.html#and-it-still-didnt-help-4",
+    "title": "Active inference",
+    "section": "And it still didn’t help",
+    "text": "And it still didn’t help\n\n\nIn December 2021, after months of struggles, I started having dissociative spirals every day. I couldn’t function.\nI walked myself over what was then the Langly Porter Psychiatric Institute at Parnassus (since demolished).\n\n \n\n\n\nThe old Grey line shuttle stop"
+  },
+  {
+    "objectID": "action.html#and-it-still-didnt-help-5",
+    "href": "action.html#and-it-still-didnt-help-5",
+    "title": "Active inference",
+    "section": "And it still didn’t help",
+    "text": "And it still didn’t help\n\n\nIn December 2021, after months of struggles, I started having dissociative spirals every day. I couldn’t function.\nI walked myself over what was then the Langly Porter Psychiatric Institute at Parnassus (since demolished).\nAnd even that didn’t help!\n\n\n\n\nCrisis text-message days per week (grey), 4-week rolling average (black), and hospital days per week (orange)"
+  },
+  {
+    "objectID": "action.html#section-11",
+    "href": "action.html#section-11",
+    "title": "Active inference",
+    "section": "",
+    "text": "But I have a different theory:\n \n\n\nWhat if I’m not mentally ill at all?"
+  },
+  {
+    "objectID": "action.html#section-12",
+    "href": "action.html#section-12",
+    "title": "Active inference",
+    "section": "",
+    "text": "What if I grew up with a different brain—an autistic brain—that nobody around me understood?\n \n\n\nMy 1st Grade classmates made fun of me after I brought a stack of CDs to class with a Visual Basic 6 program I had written for practicing their multiplication tables.\n…Never lived that one down."
+  },
+  {
+    "objectID": "action.html#section-13",
+    "href": "action.html#section-13",
+    "title": "Active inference",
+    "section": "",
+    "text": "What if—having been socially ostracized and hurt everywhere I went—I never felt safe enough as a child to explore my real identity?\n\nWhat if instead I built my life from an initial belief, learned early, …\n\n\na belief that was wrong, …\n\n\nbut one that at least allowed me to survive in that unsafe place?"
+  },
+  {
+    "objectID": "action.html#section-15",
+    "href": "action.html#section-15",
+    "title": "Active inference",
+    "section": "",
+    "text": "What if I created an entire universe of ideas built on top of that one concept—a concept so core to who we are, how we relate to others, and how we relate to the world?\n\nWhat if I spent decades of my life digging deeper and deeper into that wrong belief…\n\n\n…years going out into the world, collecting data that I knew would reinforce it, because it was what had kept me safe in that formative time?"
+  },
+  {
+    "objectID": "action.html#section-17",
+    "href": "action.html#section-17",
+    "title": "Active inference",
+    "section": "",
+    "text": "What if there isn’t any disease in me that has to be cured at all?\n\nWhat if my suffering was caused because of one prior belief, one concept I had gotten wrong in the distant past, and the years of erosion that built on top of it?\n\n \n\n\nWhat if one wrong idea from the past changes everything?"
+  },
+  {
+    "objectID": "action.html#healing-1",
+    "href": "action.html#healing-1",
+    "title": "Active inference",
+    "section": "Healing",
+    "text": "Healing\n\n\n\n\n\nCrisis text-message days per week (grey), 4-week rolling average (black), and hospital days per week (orange)\n\n\n\n \nWell, …\nsomething worked.\n\n \nAnd that thing was psychedelic ketamine therapy (sessions in yellow bars)."
+  },
+  {
+    "objectID": "action.html#session-structure",
+    "href": "action.html#session-structure",
+    "title": "Active inference",
+    "section": "Session structure",
+    "text": "Session structure\n\n\n\n\n \n\n\n\nOne of the treatment rooms at my clinic.\n\n\n\nPreparation (30 minutes): Intention journaling, what I would like to receive from the session\nAdministration (15 minutes): 4–6 intranasal sprays, administered under physician supervision\nAcute trip (30–90 minutes):\n\nEyes closed, listening to prepared playlist (created by my own simulated annealing music semantic arc playlist, to evoke particular content)\nFlorid, ever-evolving, internally generated visual and somatic percepts\n\nPost-acute integration (60–120 minutes): Spontaneous, free-association journaling on acute trip percepts and evoked relational content on reflection."
+  },
+  {
+    "objectID": "action.html#section-18",
+    "href": "action.html#section-18",
+    "title": "Active inference",
+    "section": "",
+    "text": "Example: Perceptual symbolic content\n\n(Session 43, post-acute journal)\n\n\n\nI say:\n    These things happened.\n\n\n\n\n    Let the Ocean\n    of lifetimes that could have been\n    wash over me.\n\n\n\n\n    Allow—\n    the unbearable torture of absence,\n    raging torrent of pink and blue.\n\n\n\n\n    My body—\n    dissolved.\n\n\n\n\nThey whisper:\n    Yes it was, yes it was, yes it was.\n\n\n\n\n\n    Yes it was, yes it was, yes it was.\n\n\n\n\n\n    Yes it was, yes it was, yes it was.\n\n\n\n\n    Yes it was, yes it was, yes it was."
+  },
+  {
+    "objectID": "action.html#section-19",
+    "href": "action.html#section-19",
+    "title": "Active inference",
+    "section": "",
+    "text": "Example: Perceptual symbolic content\n\n(Session 43, post-acute journal)\n \n\n\nI say:\n    Take me to see the Child—\n    my first Vision, so long ago.\n    The little boy,\n    curled in a ball,\n        his face hidden.\n\n\n    It’s ok—\n    I’m here now.\n    Let me hold you.\n    Let me share the burden.\n    Let me lift you up.\n\n\n\n\nI reach out my hand:\n    Just turn to me.\n    Show me your face.\n    Show me who you really are.\n\n\n\nThe little girl turns her head\n    and looks at me."
+  },
+  {
+    "objectID": "action.html#section-20",
+    "href": "action.html#section-20",
+    "title": "Active inference",
+    "section": "",
+    "text": "Example: Perceptual symbolic content\n\n(Session 43, post-acute journal)\n \n\n\nThe Ocean\n        of lives that could have been.\nMoments—\n        a yearbook photo,\n        a family dinner,\n        a white coat ceremony,\n        a trip to Poland,\nHer face—\n        my face,\nMy body—\n        the right body.\nNot dissolved—\n        here-now.\n\n\n\nThe wave travels:\n        I have hair.\n        I have a face.\n        I have fingers.\n        I have a navel.\n                Farther.\n        I have thighs.\n        I have calves.\n        I have toes.\n\n\n\n                I am a human."
+  },
+  {
+    "objectID": "action.html#section-21",
+    "href": "action.html#section-21",
+    "title": "Active inference",
+    "section": "",
+    "text": "Example: Perceptual symbolic content\n\n(Session 43, post-acute journal)\n\n\nBefore me,\n        the Moon passes in front of the Sun.\nIn the shadow of Eclipse,\nfrom the Ocean, I rise—\n        Anima, resurrected;\n        golden daughter;\n        Woman of the Water,\n                heart of Fire.\n\n\n\n\n\n\n\n\n\n\n\nThe Sun returns.\n\nI dance through sunbeams,\n        into the faraway and forever starlight,\n        and rejoice that I am found."
+  },
+  {
+    "objectID": "action.html#how-do-psychedelics-work",
+    "href": "action.html#how-do-psychedelics-work",
+    "title": "Active inference",
+    "section": "How do psychedelics work?",
+    "text": "How do psychedelics work?\n\n\n\n\n\nReproduced from ibid.\n\n\n\nOne contemporary hypothesis: Relaxed beliefs under psychedelics (Carhart-Harris and Friston, 2019)."
+  },
+  {
+    "objectID": "action.html#how-do-psychedelics-work-1",
+    "href": "action.html#how-do-psychedelics-work-1",
+    "title": "Active inference",
+    "section": "How do psychedelics work?",
+    "text": "How do psychedelics work?\n\n\n\n\n\nReproduced from ibid.\n\n\n\n\nPsychedelics reduce impact of prior beliefs on shaping experience\nSeen as a transient flattening of the energy landscape of brain dynamics\nAllows exploration of previously-inaccessible parts of world model–space"
+  },
+  {
+    "objectID": "action.html#a-larger-picture-of-homeostasis-in-learning-systems",
+    "href": "action.html#a-larger-picture-of-homeostasis-in-learning-systems",
+    "title": "Active inference",
+    "section": "A larger picture of homeostasis in learning systems",
+    "text": "A larger picture of homeostasis in learning systems\n\n\n\n\n\nReproduced from Dohare et al. 2024.\n\n\n\n\nAI training with gradient descent fails in continuous learning\nProblem is that early descent into a local minimum is unrecoverable\nRequires a continuous regularization strategy"
+  },
+  {
+    "objectID": "action.html#overheard-at-ucsf",
+    "href": "action.html#overheard-at-ucsf",
+    "title": "Active inference",
+    "section": "Overheard at UCSF",
+    "text": "Overheard at UCSF"
+  },
+  {
+    "objectID": "action.html#section-23",
+    "href": "action.html#section-23",
+    "title": "Active inference",
+    "section": "",
+    "text": "“And so the psychedelic experience—I think it’s probably just noise, that’s it. And the brain is very good at making meaning out of nothing. … And so it just makes up a story about what’s going on. And for reasons that are not entirely clear to me, this story that’s made up when people take psychedelics is very meaningful to them.”\n\n(Image: @BryanRoth on X, annotation mine)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Maxwell\n\n\n\n\n\n\n\n\n\n\n\n(b) Maxine\n\n\n\n\n\n\n\nFigure 1: “Take me to see the Child … The little boy, curled in a ball, his face hidden. … Just turn to me. Show me your face. Show me who you really are.”\n\n“The little girl turns her head and looks at me.”"
+  },
+  {
+    "objectID": "action.html#section-24",
+    "href": "action.html#section-24",
+    "title": "Active inference",
+    "section": "",
+    "text": "The origins of bad prior beliefs in psychiatry\n \n\nNot difficult to locate"
+  },
+  {
+    "objectID": "action.html#section-25",
+    "href": "action.html#section-25",
+    "title": "Active inference",
+    "section": "",
+    "text": "Maybe the reason mental suffering is so difficult to alleviate isn’t because we haven’t found the right neural representation of a disease, or the right circuit to stimulate that cures it.\n \nMaybe the suffering of the mentally different arises from that very story we tell them as scientists and as a society—\n—the story that there is a disease to be cured."
+  },
+  {
+    "objectID": "action.html#section-27",
+    "href": "action.html#section-27",
+    "title": "Active inference",
+    "section": "",
+    "text": "But the good news is, every year we get a special infusion of energy and creative ideas, a flattening of our energy landscape…\n \n\n\nWhen new students—with fresh new perspectives—arrive here!"
+  },
+  {
+    "objectID": "action.html#section-28",
+    "href": "action.html#section-28",
+    "title": "Active inference",
+    "section": "",
+    "text": "The structures of power were formed through centuries of erosion—\n\n\n—from initial conditions that bias everything we think to benefit a select few."
+  },
+  {
+    "objectID": "action.html#section-29",
+    "href": "action.html#section-29",
+    "title": "Active inference",
+    "section": "",
+    "text": "They will make you hurt if you do not conform."
+  },
+  {
+    "objectID": "action.html#section-30",
+    "href": "action.html#section-30",
+    "title": "Active inference",
+    "section": "",
+    "text": "But true resistance lies in allowing:\n\n\nAllowing yourself the freedom of stepping outside the constraints of history—outside who you are told you must be."
+  },
+  {
+    "objectID": "action.html#section-31",
+    "href": "action.html#section-31",
+    "title": "Active inference",
+    "section": "",
+    "text": "The freedom of becoming you.\n\n\n\nUnbreakable you."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to UCSF!",
+    "section": "",
+    "text": "Let’s take a walk through the magical world of\n\nｓｔａｔｉｓｔｉｃｓ.\n📈 🧮 📊\n\n❤️‍🔥 Maxine, G5\nIn voluntary free association with the Poskanzer and Abbasi Labs\nmaxine.collard@ucsf.edu\n\n\n\n\n\n\n\nBe entertaining.\nProvoke thoughts.\n\n\n\n\n\n\nAsk questions.\nFind the interesting thing.",
     "crumbs": [
-      "How-to"
+      "Home"
     ]
   },
   {
-    "objectID": "howto.html#this-site",
-    "href": "howto.html#this-site",
-    "title": "Protips",
+    "objectID": "index.html#for-today",
+    "href": "index.html#for-today",
+    "title": "Welcome to UCSF!",
     "section": "",
-    "text": "This site was made with Quarto and hosted on GitHub Pages. You should try them both for your projects—they’re rad!\n\n\nThe search bar can find anything on this site or in any of the slide presentations; try it by pressing S!\n\n\n\nYou can find the code for this site and all slide decks on GitHub.\nAll code blocks for figures and demonstrations are actually executed each time the entire site and all the slide decks are rendered to HTML; this means that each time you view the site yourself from your own machine, you’ll get a new random result for everything!",
+    "text": "Be entertaining.\nProvoke thoughts.\n\n\n\n\n\n\nAsk questions.\nFind the interesting thing.",
     "crumbs": [
-      "How-to"
+      "Home"
     ]
   },
   {
-    "objectID": "howto.html#slides",
-    "href": "howto.html#slides",
-    "title": "Protips",
+    "objectID": "agenda.html",
+    "href": "agenda.html",
+    "title": "Agenda",
     "section": "",
-    "text": "Slides are revendered with Reveal.js at build-time.\nWhen you’re in a slide presentation:\n\nPress SPACE to advance to the next slide; or, use the left and right arrow keys to go back and forth between slides. On mobile, swipe left or right.\nPress ESC or O to show the grid overview; slides within a section advance going down, and sections are arranged left-to-right.\nPress F to enter fullscreen mode.",
+    "text": "population versus sample\nsampling distribution of the mean\n\\(p\\)-value and power\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na simulated nightmare\nwhat does a test result tell you?\nwhat do tests really do?\nusing tests in science\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscience as erosion\nwhat happens when you learn the wrong concepts early?\na better way forward",
     "crumbs": [
-      "How-to"
+      "Agenda"
+    ]
+  },
+  {
+    "objectID": "agenda.html#air-on-unseen-data",
+    "href": "agenda.html#air-on-unseen-data",
+    "title": "Agenda",
+    "section": "",
+    "text": "population versus sample\nsampling distribution of the mean\n\\(p\\)-value and power",
+    "crumbs": [
+      "Agenda"
+    ]
+  },
+  {
+    "objectID": "agenda.html#water-gaining-knowledge-from-tests",
+    "href": "agenda.html#water-gaining-knowledge-from-tests",
+    "title": "Agenda",
+    "section": "",
+    "text": "a simulated nightmare\nwhat does a test result tell you?\nwhat do tests really do?\nusing tests in science",
+    "crumbs": [
+      "Agenda"
+    ]
+  },
+  {
+    "objectID": "agenda.html#fire-active-inference",
+    "href": "agenda.html#fire-active-inference",
+    "title": "Agenda",
+    "section": "",
+    "text": "science as erosion\nwhat happens when you learn the wrong concepts early?\na better way forward",
+    "crumbs": [
+      "Agenda"
     ]
   }
 ]

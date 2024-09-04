@@ -1,0 +1,1306 @@
+---
+title: "Active inference"
+subtitle: "UCSF NS Orientation 2024 — Stats III"
+author: Maxine Collard
+#
+format:
+    revealjs:
+        output-file: action.html
+        embed-resources: true
+        #
+        transition: slide
+        background-transition: slide
+        theme: simple
+---
+
+# Learning about the world {background-color="bisque"}
+
+---
+
+## Learning about the world
+
+ 
+
+The "ideal" science centers on the **experimental cycle**:
+
+::: {.incremental}
+* Start with **what we currently know** about the world.
+* **Observe new data**.
+* Use this data to **make inferences** that **update** how we view the world.
+:::
+
+---
+
+## {background-color="black" background-image="figures/experimental-design/f1.png" background-size="contain"}
+
+---
+
+## Recall
+
+The amount of information provided by a test result is called the result's **Bayes factor**, $K$. While the PPV—which is the **posterior probability** of disease given a positive test—changes depending on the prior, the following **ratios** are always proportional:
+
+$$ \frac{\mathrm{Pr}(\textrm{actually }+ \mid \textrm{test }+)}{\mathrm{Pr}(\textrm{actually }- \mid \textrm{test }+)} = K\,\frac{\mathrm{Pr}(\textrm{actually }+)}{\mathrm{Pr}(\textrm{actually }-)}$$
+
+So, the Bayes factor tells us how much receiving a positive test result **changes** our prior belief. Test results with larger Bayes factors **change our beliefs more**.
+
+---
+
+## In experimental design
+
+The **posterior probability** of a model given data changes depending on the prior.
+
+However, the following **ratios** are always proportional:
+
+$$
+\frac{\mathrm{Pr}(\textrm{model }1 \mid \textrm{data we see})}{\mathrm{Pr}(\textrm{model }2 \mid \textrm{data we see})} = K\,\frac{\mathrm{Pr}(\textrm{model }1)}{\mathrm{Pr}(\textrm{model }2)}
+$$
+
+So, the Bayes factor $K$ tells us how much receiving a positive test result **changes** our prior belief. Test results with larger Bayes factors **change our beliefs more**.
+
+---
+
+## Principles of experimental design
+
+ 
+
+::: {.fragment}
+All we can reasonably do is **compare models**.
+:::
+
+::: {.fragment}
+> "All models are wrong; some are useful."—James Box
+:::
+
+::: {.fragment}
+Choose comparisons that we think **will tease apart the models** (have a large expected Bayes factor)
+:::
+
+ 
+
+::: {.fragment}
+> Somebody has to tell a Congressional panel why taxpayer money pays for what we do.
+:::
+
+---
+
+## What's in an experimental design
+
+When we conduct experiments, we collect **data** that **updates** our beliefs about the world:
+
+$$
+\begin{eqnarray*}
+& \mathrm{Pr}(\textrm{model}) & \\
+& \downarrow & \\
+& \mathrm{Pr}(\textrm{model} \mid \textrm{data})
+\end{eqnarray*}
+$$
+
+::: {.fragment}
+When you design an experiment, you specify:
+:::
+
+::: {.incremental}
+* what **data** you will **collect**, and
+* how that will **update** your beliefs about your **model** with any outcome.
+:::
+
+
+# ...Is that all? {background-color="LightSalmon"}
+
+---
+
+## Science: {auto-animate="true"}
+
+\
+\
+ 
+
+$$
+\begin{eqnarray*}
+    & \mathrm{Pr}(\textrm{Model }A) & \textrm{Form Prior} \\
+\end{eqnarray*}
+$$
+
+
+## Science: {auto-animate="true"}
+
+\
+\
+ 
+
+$$
+\begin{eqnarray*}
+    & \mathrm{Pr}(\textrm{Model }A) & \textrm{Form Prior} \\
+    & \downarrow & \textrm{Get Data} \\
+\end{eqnarray*}
+$$
+
+## Science: {auto-animate="true"}
+
+\
+\
+ 
+
+$$
+\begin{eqnarray*}
+    & \mathrm{Pr}(\textrm{Model }A) & \textrm{Form Prior} \\
+    & \downarrow & \textrm{Get Data} \\
+    & \mathrm{Pr}(\textrm{Model  }A \mid \textrm{Data}) & \textrm{Update Belief}
+\end{eqnarray*}
+$$
+
+---
+
+## One might wonder...  {auto-animate="true"}
+
+::: {.incremental}
+* What PPV makes a diagnostic test good? What NPV?
+* Is it the same for scientific tests?
+* Where do tests sit in a larger societal context?
+    * i.e., What are we actually **doing** with the knowledge we get from tests?
+* Are false positives and false negatives **equally** bad?
+    * Since there's a tradeoff between PPV and NPV, which should we prioritize making as large as possible?
+:::
+
+## One might wonder... {auto-animate="true"}
+
+::: {.incremental}
+* How do we know whether our belief about the prevalence of Covid is correct?
+* How do we know how accurate our prior belief about a statement in science is?
+:::
+
+::: {.fragment}
+> Since, as we established before, these are **crucial** for determining how useful any test is.
+:::
+
+---
+
+## {.center}
+
+> *The unraveling begins...*
+
+
+# Science as process  {background-color="SeaGreen"}
+
+---
+
+## Science as process {auto-animate="true"}
+
+ 
+
+Do we really just do one experiment?
+
+ 
+
+$$
+\begin{eqnarray*}
+    & \mathrm{Pr}(\textrm{Statement}) & \\
+    & \downarrow & \textrm{Get Data} \\
+    & \mathrm{Pr}(\textrm{Statement} \mid \textrm{Data}) &
+\end{eqnarray*}
+$$
+
+---
+
+Let's say we run a second experiment with a second test. Now I can **update** my knowledge **again**:
+ 
+$$
+\begin{eqnarray*}
+    & \mathrm{Pr}(\textrm{Statement}) & \\
+    & \downarrow & \textrm{Get Data 1} \\
+    & \mathrm{Pr}(\textrm{Statement} \mid \textrm{Data 1}) & \\
+    & \downarrow & \textrm{Get Data 2} \\
+    & \mathrm{Pr}(\textrm{Statement} \mid \textrm{Data 1},\textrm{Data 2}) & \\
+    & \downarrow & \\
+    & \cdots &
+\end{eqnarray*}
+$$
+
+And so on, for test after test.
+
+---
+
+## {background-image="figures/ppv/f2.png" background-color="black" background-size="contain"}
+
+---
+
+## One might wonder... {auto-animate="true"}
+
+::: {.incremental}
+* What does this process,
+$$
+\mathrm{Pr}(\textrm{Statement} \mid \textrm{Data 1}, \cdots, \textrm{Data }k)
+$$
+converge to as we do more and more experiments,
+$$
+k \to \infty
+$$
+
+* Does it converge at all?
+
+* What does this convergence depend on?
+:::
+
+---
+
+## One might wonder...
+
+\
+ 
+
+### Wait, how do we choose the next test to run each time?
+
+ 
+
+This is a **big** question, so let's think about it in the context of a few specific examples.
+
+---
+
+## One might wonder... {auto-animate="true"}
+
+\
+Let's say we **update** our belief with successive tests, as above, but at each step, we choose the next test such that it will **maximally increase our updated probability**, $\mathrm{Pr}(\textrm{statement} \mid \textrm{tests})$.
+
+That is, we choose the experiment that we think will **give us the most evidence supporting our model**.
+
+ 
+
+::: {.fragment .fade-down}
+### What does [this]{.underline} process converge to?
+:::
+
+## One might wonder... {auto-animate="true"}
+
+ 
+
+Let's say we update our belief with successive tests, as above, but at each step, we choose the next test **completely at random**.
+
+ 
+
+::: {.fragment .fade-down}
+### What does [this]{.underline} process converge to?
+:::
+
+## One might wonder... {auto-animate="true"}
+
+ 
+
+Let's say we **update** our belief with successive tests, but we are **really wrong** about our initial belief.
+
+::: {.incremental}
+* What happens to the limit of $\mathrm{Pr}(\textrm{Statement} \mid \textrm{Data 1}, \cdots, \textrm{Data }k)$?
+
+* Will our belief always end up in the same place at the end of the process, regardless of what we initially think?
+
+* What is the best initial belief to have?
+:::
+
+
+# Comparing models {background-color="purple"}
+
+---
+
+## Comparing models
+
+Let's say we **update** our belief with successive tests, but this time, we look at **multiple** candidate models; i.e., we obtain
+
+$$
+\begin{eqnarray*}
+    &\mathrm{Pr}(\textrm{model 1} \mid \textrm{test 1},\cdots,\textrm{test }n) \\
+    &\mathrm{Pr}(\textrm{model 2} \mid \textrm{test 1},\cdots,\textrm{test }n) \\
+    &\cdots \\
+    &\mathrm{Pr}(\textrm{model }k \mid \textrm{test 1},\cdots,\textrm{test }n)
+\end{eqnarray*}
+$$
+
+after a sequence of $n$ tests.
+
+---
+
+## {background-image="figures/ppv/f3.png" background-color="black" background-size="contain"}
+
+---
+
+## One might wonder... {auto-animate="true"}
+
+\
+\
+\
+ 
+
+### Does the presence of multiple candidate models change the way we should choose the next test?
+
+
+## One might wonder... {auto-animate="true"}
+
+In the above scheme with multiple candidate models, let's say that the **truth** is **not** among the models that you considered.
+
+::: {.fragment .fade-down}
+> (After all, do we have so much hubris as scientists to think that universal truth is guaranteed to be comprehensible by human models?)
+:::
+
+::: {.incremental}
+* What does **this** process converge to?
+
+* How do you interpret the result you end up at after iterating the experimental cycle a bunch?
+:::
+
+## One might wonder... {auto-animate="true"}
+
+In the above scheme with multiple candidate models, let's say that the **truth** is **not** among the models that you considered.
+
+> (After all, do we have so much hubris as scientists to think that universal truth is guaranteed to be comprehensible by human models?)
+
+* How would you **even know** whether you included the truth as a candidate model you were considering in your prior?
+
+
+# History dependence {background-color="SteelBlue"}
+
+---
+
+## History dependence {auto-animate="true"}
+
+The process of updating our beliefs about our model is kind of like an **optimization problem**.
+
+Imagine that there is some "landscape" painted across the space of all models we're considering, with the "height" at each point (each model) corresponding to the "badness" of that model.
+
+> For example, models are worse (higher up) if they have a bigger **prediction error**, lower $R^2$, etc.
+
+## History dependence {auto-animate="true"}
+
+The process of updating our beliefs about our model is kind of like an **optimization problem**.
+
+Imagine that there is some "landscape" painted across the space of all models we're considering, with the "height" at each point (each model) corresponding to the "badness" of that model.
+
+Our goal is to incrementally update what we *think* the best model is, in order to someday find the lowest point in the entire landscape—the **actual best** model—which should be the **truth**.
+
+---
+
+## {background-image="figures/ppv/f4.png" background-color="black" background-size="contain"}
+
+---
+
+## But...
+
+ 
+::: {.fragment}
+After each experiment we run, we collect **new data**.
+:::
+
+::: {.fragment}
+This new data **changes how we measure** the badness or goodness of a model's fit.
+:::
+
+::: {.fragment}
+> After all, the model should fit the new data **also**!
+:::
+
+ 
+
+::: {.fragment}
+This **alters the landscape** of our optimization problem.
+:::
+
+---
+
+## {background-image="figures/ppv/f5.png" background-color="black" background-size="contain"}
+
+---
+
+## One might wonder... {auto-animate="true"}
+
+::: {.incremental}
+* What happens if we start off **very wrong** about our prediction of what model is best?
+
+* Does this optimization process, iteratively deforming the landscape, converge to the truth?
+
+* If not, how can we ever "recover"?
+:::
+
+---
+
+![](figures/ppv/f5.png){fig-align="center" width=100%}
+
+::: {.incremental}
+* Is this new minimum *actually* the truth? That is, was our notion of truth—our "landscape"—wrong to begin with?
+
+* Was the evidence that "eroded" the landscape actually *helpful*? Or was this erosion a result of our **bias** from an incorrect initial prediction?
+:::
+
+---
+
+## {.center background-color="PaleGreen"}
+
+### How does the optimum we converge to depend on how we choose the next data to collect?
+
+---
+
+## One might wonder... {auto-animate="true"}
+
+::: {.incremental}
+* If we had started off the entire process with a **vastly different initial prediction**, would *yet another* minimum have emerged?
+    * Is *that* the truth?
+    * Which one?
+
+* How does the optimum we converge to depend on our initial beliefs?
+:::
+
+## One might wonder... {auto-animate="true"}
+
+\
+ 
+
+::: {.incremental}
+* Is there a criterion for optimality that is **independent** of our starting position?
+
+* Can we design a scheme for conducting tests that makes us more likely to converge to that **universal** model, regardless of our initial beliefs?
+:::
+
+## One might wonder... {auto-animate="true"}
+
+ 
+
+::: {.incremental}
+* Is any of this even a problem?
+
+* As we try to design a scientific process:
+    * Should we **minimize** the effect of this history dependence, the "erosion" of the landscape?
+    * Or is this actually an **important** feature of how science behaves?
+:::
+
+---
+
+## {.center background-color="IndianRed"}
+
+### Is the body of knowledge we have converged to through the scientific process a statement about the world we live in?
+
+ 
+
+::: {.fragment}
+### Or is it just a statement about the process [itself]{.underline}?
+:::
+
+---
+
+## {.center background-color="FireBrick"}
+
+#### What would scientific "truth" look like today if we [started]{.underline} with different structures for how we build new knowledge?
+
+ 
+
+::: {.fragment}
+#### What amazing ideas have we missed out on?
+:::
+
+ 
+
+::: {.fragment .fade-down}
+### [Who benefits]{.underline} from the rules being as they are?
+:::
+
+
+# My story {background-color="gold"}
+
+---
+
+## The year 2000 {auto-animate="true"}
+
+:::: {.columns}
+::: {.column}
+![Expectation](figures/action/f4.jpg){width="75%"}
+:::
+::: {.column}
+![Reality](figures/action/f5.jpg)
+:::
+::::
+
+## The year 2000 {auto-animate="true"}
+
+:::: {.columns}
+::: {.column width="60%"}
+!["Get off the phone, I need to use the Internet"](figures/action/f6.jpg)
+:::
+::: {.column width="40%"}
+![(The Internet)](figures/action/f7.jpg)
+:::
+::::
+
+## The year 2000 {auto-animate="true"}
+
+:::: {.columns}
+::: {.column width=25%}
+:::
+::: {.column width=50%}
+![Maxwell Jordan Collard](figures/action/f2.jpg){width=70%}
+:::
+::: {.column width=25%}
+:::
+::::
+
+---
+
+::: {.columns}
+::: {.column}
+
+\
+
+> (It only got worse by 2011.)
+:::
+::: {.column}
+![Yikers](figures/action/f3.jpg)
+:::
+::::
+
+---
+
+## The year 2000 {auto-animate="true"}
+
+:::: {.columns}
+::: {.column width=55%}
+
+\
+\
+\
+ 
+
+::: {.fragment}
+When I first went to see a therapist for depression.
+:::
+
+:::
+::: {.column width=45%}
+![](figures/action/f2.jpg){width=80%}
+:::
+::: {.column}
+:::
+::::
+
+---
+
+## Labels I have been given {.smaller auto-animate="true"}
+
+:::: {.columns}
+::: {.column}
+::: {.incremental}
+* Major depressive disorder
+* Obsessive-compulsive disorder
+* Oppositional defiant disorder
+* Post-traumatic stress disorder
+* Borderline personality disorder
+* Bipolar II disorder
+* *Complex* post-traumatic stress disorder
+* Autism spectrum disorder
+* Attention-deficit/hyperactivity disorder
+:::
+:::
+::: {.column}
+:::
+::::
+
+## Labels I would endorse {.smaller auto-animate="true" background-color="LightCyan"}
+
+:::: {.columns}
+::: {.column}
+* [Major depressive disorder]{style="opacity: 0.4;"}
+* [Oppositional defiant disorder]{style="opacity: 0.4;"}
+* [Post-traumatic stress disorder]{style="opacity: 0.4;"}
+* [Bipolar II disorder]{style="opacity: 0.4;"}
+* [Borderline personality disorder]{style="opacity: 0.4;"}
+:::
+::: {.column}
+*Two buckets:*
+
+ 
+
+#### "Neuro-spicy"
+* **Autism spectrum disorder**
+* **Attention-deficit/hyperactivity disorder**
+* **Obsessive-compulsive disorder**
+
+ 
+
+#### "Stuff happened"
+* ***Complex* post-traumatic stress disorder**
+:::
+::::
+
+---
+
+## {.smaller auto-animate="true"}
+
+### Some medications I tried ...
+
+:::: {.columns}
+::: {.column width="33%"}
+* fluoxetine
+* sertraline
+* mirtazapine
+* alprazolam
+* clonazepam
+:::
+::: {.column width="34%"}
+* lurasidone
+* aripiprazole, brexpiprazole
+* olanzapine
+* quetiapine
+* risperidone
+* trazadone
+:::
+::: {.column width="33%"}
+* lithium carbonate
+* lamotrigine
+* valproic acid
+* oxcarbazepine
+* escitalopram, buproprion
+:::
+::::
+
+## {.smaller auto-animate="true"}
+
+### Some medications I tried ... And their side effects
+
+:::: {.columns}
+::: {.column width="33%"}
+* fluoxetine
+    * **diarrhea**; **sexual dysfunction**
+* sertraline
+    * **precipitated hypomanic episode** after one half-pill
+* mirtazapine
+    * somnolence; **severe weight gain**
+* alprazolam
+    * vivid, horrifying **nightmares**
+* clonazepam
+    * **depression**; worsening anxiety
+:::
+::: {.column width="34%"}
+* lurasidone
+    * **akathisia**; drug-induced **Parkinsonism**
+* aripiprazole, brexpiprazole
+    * **mood swings**; severe drug-induced Parkinsonism
+* olanzapine
+    * somnolence; **impaired cognition**; weight gain; akathisia
+* quetiapine
+    * somnolence; impaired cognition; akathisia
+* risperidone
+    * weight gain
+* trazadone
+    * somnolence
+:::
+::: {.column width="33%"}
+* lithium carbonate
+    * diarrhea; **incontinence**; **urinating 6+/day**; **myoclonus**; drug-induced Parkinsonism
+* lamotrigine
+    * **full-body skin rash** after one half-pill
+* valproic acid
+    * episodes of **frank derealization-depersonalization**
+* oxcarbazepine
+    * impaired cognition
+* escitalopram, buproprion
+    * severe mood swings
+:::
+::::
+
+---
+
+## And it still didn't help {auto-animate="true"}
+
+Constant battle against **dissociative spirals**
+
+::: {.incremental}
+* Small trigger, sometimes subliminal (not consciously aware of it at the start)
+:::
+
+## And it still didn't help {auto-animate="true"}
+
+Constant battle against **dissociative spirals**
+
+::: {.incremental}
+* Progressive worsening of symptoms over ensuing minutes to hours
+    * Anxiety, sympathetic activation
+    * Reach out to social network for help
+    * Lack of response $\rightarrow$ Worsening agitation
+    * **Depersonalization**, **derealization**
+    * ...
+:::
+
+## And it still didn't help {auto-animate="true"}
+
+Constant battle against **dissociative spirals**
+
+::: {.incremental}
+* Eventually spontaneously ends within seconds to a minute
+
+* Refractory period of fatigue afterward for several hours
+:::
+
+## And it still didn't help {auto-animate="true"}
+
+:::: {.columns}
+::: {.column width="45%"}
+![Crisis text-message days per week (grey), 4-week rolling average (black), and hospital days per week (<span style="color: #ff9900;">orange</span>)](figures/action/f8.png){width=70%}
+:::
+::: {.column width="55%"}
+In December 2021, after months of struggles, I started having dissociative spirals **every day**. I couldn't function.
+:::
+::::
+
+## And it still didn't help {auto-animate="true"}
+
+:::: {.columns}
+::: {.column width="55%"}
+In December 2021, after months of struggles, I started having dissociative spirals **every day**. I couldn't function.
+
+I walked myself over what was then the Langly Porter Psychiatric Institute at Parnassus (*since demolished*).
+:::
+::: {.column width="45%"}
+ 
+
+![The old Grey line shuttle stop](figures/action/f9.jpg)
+:::
+::::
+
+## And it still didn't help {auto-animate="true"}
+
+:::: {.columns}
+::: {.column width="55%"}
+In December 2021, after months of struggles, I started having dissociative spirals **every day**. I couldn't function.
+
+I walked myself over what was then the Langly Porter Psychiatric Institute at Parnassus (*since demolished*).
+
+#### And even [that]{.underline} didn't help!
+:::
+::: {.column width="45%"}
+![Crisis text-message days per week (grey), 4-week rolling average (black), and hospital days per week (<span style="color: #ff9900;">orange</span>)](figures/action/f8.png){width=70%}
+:::
+::::
+
+---
+
+
+## {.center}
+
+#### But I have a different theory: {.center}
+
+ 
+
+::: {.fragment .fade-up}
+### What if I'm not mentally ill at all?
+:::
+
+---
+
+## {.center}
+
+*What if* I grew up with a different brain—an **autistic** brain—that nobody around me understood?
+
+ 
+
+::: {.fragment}
+> My 1st Grade classmates made fun of me after I brought a stack of CDs to class with a Visual Basic 6 program I had written for practicing their multiplication tables.
+> 
+> ...Never lived that one down.
+:::
+
+---
+
+## {.center}
+
+*What if*—having been socially ostracized and hurt everywhere I went—I never felt **safe** enough as a child to explore my real identity?
+
+::: {.fragment}
+*What if* instead I built my life from an initial belief, learned early, ...
+:::
+
+::: {.fragment}
+a belief that was **wrong**, ...
+:::
+
+::: {.fragment}
+but one that at least allowed me to **survive** in that unsafe place?
+:::
+
+---
+
+## {background-image="figures/action/f17.jpeg" background-color="black" background-size="contain"}
+
+---
+
+## {.center}
+
+*What if* I created an **entire universe** of ideas built on top of that one concept—a concept so core to who we are, how we relate to others, and how we relate to the world?
+
+::: {.fragment}
+*What if* I spent decades of my life **digging deeper and deeper** into that wrong belief...
+:::
+
+::: {.fragment}
+...years going out into the world, **collecting data** that I knew would reinforce it, because it was what had kept me **safe** in that formative time?
+:::
+
+---
+
+## {background-image="figures/action/f18.jpeg" background-color="black" background-size="contain"}
+
+---
+
+## {.center}
+
+*What if* there isn't any disease in me that has to be cured at all?
+
+::: {.fragment}
+*What if* my suffering was caused because of one prior belief, one concept I had gotten wrong in the distant past, and the years of erosion that built on top of it?
+:::
+
+ 
+
+::: {.fragment}
+### What if one wrong idea from the past changes everything?
+:::
+
+
+# Healing {background-color="PaleGreen"}
+
+---
+
+## Healing
+
+:::: {.columns}
+::: {.column width="50%"}
+![Crisis text-message days per week (grey), 4-week rolling average (black), and hospital days per week (<span style="color: #ff9900;">orange</span>)](figures/action/f10.png)
+:::
+::: {.column width="50%"}
+ 
+
+Well, ...
+
+<span style="color: #FFBF00;">**something**</span> worked.
+
+::: {.fragment}
+ 
+
+And that thing was **psychedelic ketamine therapy** (sessions in <span style="color: #FFBF00;">yellow bars</span>).
+:::
+:::
+::::
+
+---
+
+## Session structure {.smaller}
+
+::: {.columns}
+
+::: {.column width=40%}
+
+\
+\
+ 
+
+![One of the treatment rooms at my clinic.](figures/action/f14.jpg)
+:::
+
+::: {.column width=60%}
+**Preparation** (*30 minutes*): Intention journaling, what I would like to receive from the session
+
+**Administration** (*15 minutes*): 4–6 intranasal sprays, administered under physician supervision
+
+**Acute trip** (*30–90 minutes*):
+
+* Eyes closed, listening to prepared playlist (created by my own simulated annealing music semantic arc playlist, to evoke particular content)
+* Florid, ever-evolving, internally generated visual and somatic percepts
+
+**Post-acute integration** (60–120 minutes): Spontaneous, free-association journaling on acute trip percepts and evoked relational content on reflection.
+:::
+
+::::
+
+
+
+---
+
+## {.smaller auto-animate="true"}
+
+### *Example*: Perceptual symbolic content\
+(Session 43, post-acute journal)
+
+:::: {.columns}
+::: {.column width=45%}
+::: {.fragment fragment-index=1}
+*I say*:\
+    These things happened.\
+\
+:::
+
+::: {.fragment fragment-index=3}
+    Let the Ocean\
+    of lifetimes that could have been\
+    wash over me.\
+\
+:::
+
+::: {.fragment fragment-index=5}
+    Allow—\
+    the unbearable torture of absence,\
+    raging torrent of pink and blue.\
+\
+:::
+
+::: {.fragment fragment-index=7}
+    My body—\
+    dissolved.
+:::
+:::
+::: {.column}
+::: {.fragment fragment-index=2}
+\
+*They whisper*:\
+    Yes it was, yes it was, yes it was.
+:::
+
+::: {.fragment fragment-index=4}
+\
+\
+\
+    Yes it was, yes it was, yes it was.
+:::
+
+::: {.fragment fragment-index=6}
+\
+\
+\
+    Yes it was, yes it was, yes it was.
+:::
+
+::: {.fragment fragment-index=8}
+\
+\
+    Yes it was, yes it was, yes it was.
+:::
+:::
+::::
+
+## {.smaller auto-animate="true"}
+
+### *Example*: Perceptual symbolic content\
+(Session 43, post-acute journal)
+
+ 
+
+:::: {.columns}
+::: {.column}
+*I say*:\
+    Take me to see the Child—\
+    my first Vision, so long ago.\
+    The little boy,\
+    curled in a ball,\
+        his face hidden.\
+
+::: {.fragment fragment-index=1}
+    It's ok—\
+    I'm here now.\
+    Let me hold you.\
+    Let me share the burden.\
+    Let me lift you up.\
+:::
+:::
+::: {.column}
+::: {.fragment fragment-index=2}
+*I reach out my hand*:\
+    Just turn to me.\
+    Show me your face.\
+    Show me who you really are.\
+:::
+
+::: {.fragment fragment-index=3}
+*The little girl turns her head*\
+    *and looks at me.*
+:::
+:::
+::::
+
+## {.smaller auto-animate="true"}
+
+### *Example*: Perceptual symbolic content\
+(Session 43, post-acute journal)
+
+ 
+
+:::: {.columns}
+::: {.column}
+The Ocean\
+        of lives that could have been.\
+Moments—\
+        a yearbook photo,\
+        a family dinner,\
+        a white coat ceremony,\
+        a trip to Poland,\
+Her face—\
+        *my* face,\
+My body—\
+        the *right* body.\
+Not dissolved—\
+        here-now.\
+:::
+::: {.column}
+::: {.fragment}
+*The wave travels*:\
+        I have hair.\
+        I have a face.\
+        I have fingers.\
+        I have a navel.\
+                *Farther.*\
+        I have thighs.\
+        I have calves.\
+        I have toes.\
+:::
+
+::: {.fragment}
+                I am a *human*.\
+:::
+:::
+::::
+
+## {.smaller auto-animate="true"}
+
+### *Example*: Perceptual symbolic content\
+(Session 43, post-acute journal)
+
+:::: {.columns}
+::: {.column}
+Before me,\
+        the Moon passes in front of the Sun.\
+In the shadow of Eclipse,\
+from the Ocean, I rise—\
+        Anima, resurrected;\
+        golden daughter;\
+        Woman of the Water,\
+                heart of Fire.
+:::
+::: {.column}
+::: {.fragment}
+\
+\
+\
+\
+\
+\
+\
+\
+\
+The Sun returns.\
+\
+I dance through sunbeams,\
+        into the faraway and forever starlight,\
+        and rejoice that I am *found*.
+:::
+:::
+::::
+
+---
+
+## How do psychedelics work? {auto-animate="true"}
+
+:::: {.columns}
+::: {.column}
+![Reproduced from *ibid*.](figures/action/f15.jpg)
+:::
+::: {.column}
+One contemporary hypothesis: [Relaxed beliefs under psychedelics](https://pharmrev.aspetjournals.org/content/71/3/316?fbclid=IwAR36UzFla5Lfx7-4LTr6R8N0XdUSOnbg3gnRPXn806cPKO7Zsas2EsJJhDs) (Carhart-Harris and Friston, 2019).
+:::
+::::
+
+## How do psychedelics work? {auto-animate="true"}
+
+:::: {.columns}
+::: {.column}
+![Reproduced from *ibid*.](figures/action/f15.jpg)
+:::
+::: {.column}
+* Psychedelics reduce impact of prior beliefs on shaping experience
+* Seen as a transient flattening of the energy landscape of brain dynamics
+* Allows exploration of previously-inaccessible parts of world model–space
+:::
+::::
+
+---
+
+## A larger picture of homeostasis in learning systems
+
+:::: {.columns}
+::: {.column}
+![Reproduced from [Dohare et al. 2024.](https://www.nature.com/articles/s41586-024-07711-7)](figures/action/f16.png)
+:::
+::: {.column}
+* AI training with gradient descent fails in continuous learning
+* Problem is that **early descent into a local minimum** is unrecoverable
+* Requires a **continuous regularization** strategy
+:::
+::::
+
+---
+
+## {background-image="figures/action/f19.jpeg" background-color="black" background-size="contain"}
+
+---
+
+## Overheard at UCSF {.smaller}
+
+{{< video https://www.youtube.com/watch?v=czjPc14y3SU
+    title="2023 UCSF Psychiatry Lecture"
+    width=1200
+    start="2665"
+    aspect-ratio="18x9"
+>}}
+
+---
+
+## {.smaller}
+
+::: {.columns}
+
+::: {.column}
+!["And so the psychedelic experience—I think it's probably just noise, that's it. And the brain is very good at making meaning out of nothing. ... And so it just makes up a story about what's going on. And for reasons that are not entirely clear to me, this story that's made up when people take psychedelics is very meaningful to them."\
+\
+(Image: \@BryanRoth on X, annotation mine)](figures/action/f11.jpg)
+:::
+::: {.column}
+
+::: {#fig-other layout-ncol=2}
+![Maxwell](figures/action/f2.jpg){#fig-a width=90%}
+
+![Maxine](figures/action/f12.jpg){#fig-a}
+
+"Take me to see the Child ... The little boy, curled in a ball, his face hidden. ... Just turn to me. Show me your face. Show me who you really are."\
+\
+"*The little girl turns her head and looks at me.*"
+:::
+
+:::
+::::
+
+---
+
+## {.center}
+
+::: {.columns}
+
+::: {.column width=55%}
+\
+\
+ 
+
+### The origins of bad prior beliefs in psychiatry
+
+ 
+
+> Not difficult to locate
+:::
+
+::: {.column width=45%}
+![](figures/action/f13.jpg)
+:::
+
+::::
+
+
+# A hopeful proposal {background-color="FireBrick"}
+
+---
+
+## {.center}
+
+Maybe the reason mental suffering is so difficult to alleviate *isn't* because we haven't found the right neural representation of a **disease**, or the right circuit to stimulate that **cures** it.
+
+ 
+
+Maybe the suffering of the mentally different **arises from that very story** we tell them as scientists and as a society—
+
+—the story that there is a disease to be cured.
+
+---
+
+## {background-image="figures/action/f19.jpeg" background-color="black" background-size="contain"}
+
+---
+
+## {.center background-color="PaleGreen"}
+
+But the good news is, every year we get a special infusion of energy and creative ideas, a flattening of our energy landscape...
+
+ 
+
+::: {.fragment}
+### When new students—with fresh new perspectives—arrive here!
+:::
+
+
+# Summary {background-color="bisque"}
+
+------------------------------------------------------------------------
+
+##  {.center background-color="purple"}
+
+::::: columns
+::: {.column width="40%"}
+### The structures of power were formed through centuries of [erosion]{.underline}—
+:::
+
+::: {.column width="60%"}
+![](figures/ppv/f5.png)
+
+### —from initial conditions that bias everything we think to benefit a [select few]{.underline}.
+:::
+:::::
+
+
+##  {.center background-color="gold"}
+
+### They will make you hurt if you do not conform.
+
+
+##  {.center background-color="SteelBlue"}
+
+::::: columns
+::: {.column width="40%"}
+\
+ 
+
+### But true resistance lies in [allowing]{.underline}:
+:::
+
+::: {.column width="60%"}
+![](figures/action/f19.jpeg)
+
+#### Allowing yourself the [freedom]{.underline} of stepping outside the constraints of history—outside who you are told you must be.
+:::
+:::::
+
+------------------------------------------------------------------------
+
+##  {.center background-color="FireBrick"}
+
+:::: columns
+::: {.column width="55%"}
+
+ 
+
+#### The freedom of becoming [you]{.underline}.
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](figures/action/f21.jpg){width=80%}
+
+### [Unbreakable]{.underline} you.
+:::
+:::
+::::
+
+
+# And that's Statistics
+
+\
+ 
+
+> ### Welcome to UCSF!
+>
+> ❤️‍🔥 Maxine

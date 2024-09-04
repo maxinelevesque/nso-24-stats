@@ -1302,6 +1302,7 @@ You look at your data, and you see that you **reject the null hypothesis** that 
 
 ### What do you do with this information?
 
+
 # Summary {background-color="bisque"}
 
 ------------------------------------------------------------------------
