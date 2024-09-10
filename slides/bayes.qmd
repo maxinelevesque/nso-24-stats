@@ -999,6 +999,7 @@ Before we ran the test, we had some **prior knowledge** about whether we had Cov
 
 $$ \mathrm{Pr}(\textrm{actually }+) $$
 
+
 ## What does a test do? {auto-animate="true"}
 
 When we get **new knowledge**—the result of the test—we **update** our belief of whether we have Covid. Our knowledge about whether we have Covid *after* the update caused by the test is precisely the **PPV**:
